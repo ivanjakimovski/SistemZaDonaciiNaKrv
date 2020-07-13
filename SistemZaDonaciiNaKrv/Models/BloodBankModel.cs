@@ -7,7 +7,7 @@ namespace SistemZaDonaciiNaKrv.Models
 {
     public class BloodBankModel
     {
-        public int Id { get; set; }
+        public int Id2 { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
