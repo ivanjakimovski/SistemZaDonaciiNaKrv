@@ -5,8 +5,7 @@ using System.Web;
 
 namespace SistemZaDonaciiNaKrv.Models
 {
-    public class DonationModel
+    public class DonationLocationModel
     {
-        public List<DateTime> allDonations { get; set; }
     }
 }
