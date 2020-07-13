@@ -174,7 +174,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BloodBankModel.cs" />
     <Compile Include="Models\BloodDonorModel.cs" />
+    <Compile Include="Models\BloodTypeModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\DonationLocationModel.cs" />
     <Compile Include="Models\DonationModel.cs" />

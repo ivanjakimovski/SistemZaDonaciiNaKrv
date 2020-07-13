@@ -7,5 +7,8 @@ namespace SistemZaDonaciiNaKrv.Models
 {
     public class BloodTypeModel
     {
+
+        public  MyProperty { get; set; }
+
     }
 }
