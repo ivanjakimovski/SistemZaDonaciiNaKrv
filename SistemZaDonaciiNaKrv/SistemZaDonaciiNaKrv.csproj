@@ -177,6 +177,10 @@
     <Compile Include="Migrations\202007131526454_initial.Designer.cs">
       <DependentUpon>202007131526454_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007131832030_Zh1.cs" />
+    <Compile Include="Migrations\202007131832030_Zh1.Designer.cs">
+      <DependentUpon>202007131832030_Zh1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -504,6 +508,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007131526454_initial.resx">
       <DependentUpon>202007131526454_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007131832030_Zh1.resx">
+      <DependentUpon>202007131832030_Zh1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
