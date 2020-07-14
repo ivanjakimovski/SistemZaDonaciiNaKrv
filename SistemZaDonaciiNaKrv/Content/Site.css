@@ -83,10 +83,6 @@ body {
 }
 
 .midBox {
-    /*width: 400px;*/
-    /*testing code below*/
-    /* legacy
-    */
     border: solid 2px red;
     background: #ddd;
     user-select: none;
@@ -98,7 +94,6 @@ body {
 }
 
 .midBox .btn {
-/*    position: fixed;*/
 /*dobro e ako nekako go zalepime kopcheto na dnoto na boxot*/
 }
 
