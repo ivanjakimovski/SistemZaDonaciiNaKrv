@@ -62,6 +62,10 @@ body {
     margin-bottom: 60px;
 }
 
+.container {
+    max-width: 1240px; /*a lesser value would squash the boxes*/
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -71,11 +75,25 @@ body {
 }
 
 .midBox {
-    width: 400px;
+    /*width: 400px;*/
     border: solid 2px red;
     background: #ddd;
+    user-select: none;
+    /*testing code below*/
+    width: 350px;
+    float: left;
+    margin-left: 50px;
+    height: 220px;
+}
+
+.midBox .btn {
+/*    position: fixed;*/
 }
 
 .midBox:hover {
-    background: eee;
+    background: #eee;
+}
+
+.attentionSeeker {
+
 }
