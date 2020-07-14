@@ -63,7 +63,11 @@ body {
 }
 
 .navbar {
-    background: rgba(0, 0, 0, 0) linear-gradient(#eee, #999) no-repeat scroll 0% 0%
+    background: linear-gradient(#fff, #ddd);
+}
+
+.navbar-nav .nav-item:hover {
+    background: linear-gradient(#ddd, #ccc);
 }
 
 .container {
