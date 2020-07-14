@@ -6,17 +6,17 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <li class="nav-item" style="position:fixed;right:0;">
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link text-dark"})
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Регистрирај се", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Логирај се", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <ul class="nav navbar-nav navbar-right" style="position:fixed;right:0;">
+        <li class="nav-item">@Html.ActionLink("Регистрирај се", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link text-dark"})</li>
+        <li class="nav-item">@Html.ActionLink("Логирај се", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link text-dark"})</li>
     </ul>
 }
