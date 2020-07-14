@@ -8,7 +8,7 @@ namespace SistemZaDonaciiNaKrv.Models
     public class DonationModel
     {
         public int Id { get; set; }
-        public DateTime DonationTime { get; set; }
-        public string City { get; set; }
+        public DateTime DonationTime2 { get; set; }
+        public string City2 { get; set; }
     }
 }
