@@ -60,12 +60,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Home/Contact">Контакт информации</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Account/Login/">Логирај се</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Account/Register/">Регистрирај се</a>
-                        </li>
+                        @Html.Partial("_LoginPartial")
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" href="/Account/Login/">Логирај се</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="/Account/Register/">Регистрирај се</a>
+        </li>*@
                     </ul>
                 </div>
             </div>
