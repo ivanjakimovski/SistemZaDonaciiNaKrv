@@ -76,14 +76,17 @@ body {
 
 .midBox {
     /*width: 400px;*/
+    /*testing code below*/
+    /* legacy
+    */
     border: solid 2px red;
     background: #ddd;
     user-select: none;
-    /*testing code below*/
-    width: 350px;
+    margin-left: 25px;
+    margin-right: 25px;
     float: left;
-    margin-left: 50px;
-    height: 220px;
+    width: 350px;
+    height: 270px;
 }
 
 .midBox .btn {
