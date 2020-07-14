@@ -26,5 +26,12 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
             return View();
         }
+
+        public ActionResult Info()
+        {
+            ViewBag.Message = "Info page.";
+
+            return View();
+        }
     }
 }
