@@ -62,6 +62,10 @@ body {
     margin-bottom: 60px;
 }
 
+.navbar {
+    background: rgba(0, 0, 0, 0) linear-gradient(#eee, #999) no-repeat scroll 0% 0%
+}
+
 .container {
     max-width: 1240px; /*a lesser value would squash the boxes*/
 }
