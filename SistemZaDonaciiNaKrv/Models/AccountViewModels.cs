@@ -64,6 +64,11 @@ namespace SistemZaDonaciiNaKrv.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

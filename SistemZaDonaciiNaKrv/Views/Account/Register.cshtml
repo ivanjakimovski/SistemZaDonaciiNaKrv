@@ -18,6 +18,13 @@
         </div>
     </div>
     <div class="form-group">
+
+        <label class="col-md-2 control-label">FirstName</label>
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-md-2 control-label">Лозинка</label>
         <div class="col-md-5">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
