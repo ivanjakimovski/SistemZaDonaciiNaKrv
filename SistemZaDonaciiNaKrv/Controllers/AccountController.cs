@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -40,6 +41,8 @@ namespace SistemZaDonaciiNaKrv.Controllers
             }
         }
 
+ 
+
         public ApplicationUserManager UserManager
         {
             get
@@ -59,6 +62,21 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult getUserName(string email)
+        {
+            string Name = UserManager.FindByEmail(email).FirstName;
+            return Content(Name);
+        }
+
+        [HttpGet]
+        public ActionResult getUserDonations(string email)
+        {
+        
+            List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
+            return Json(donations, JsonRequestBehavior.AllowGet);
         }
 
         //
@@ -151,7 +169,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {FirstName = model.FirstName, UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

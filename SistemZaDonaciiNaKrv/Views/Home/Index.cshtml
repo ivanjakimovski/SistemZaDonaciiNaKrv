@@ -3,33 +3,61 @@
 }
 
 
+@if (Request.IsAuthenticated)
+{
+    <h1>Име презиме: <span class="testIme"> </span></h1>
 
-
-<div class="text-center">
-    <h3 style="color: red;">Дарувај крв спаси човечки живот.</h3>
-</div>
-
-<p>Да се стане крводарител пред се значи да се биде хуман човек.</p>
-<p>Преку овој хуман гест, со само една донирана кеса крв, може да спасите и до 3 или 4 животи.</p>
-<p>Доколку не сте целосно запознаени со овој процес <a href="/Home/Info/">тука</a> може да прочитате повеќе информации поврзани со донирање на крв.</p>
-
-<div class="text-center">
-    <div class="midBox card">
-        <div class="card-body">
-            <h3 class="card-title">
-                САКАТЕ ДА СТАНЕТЕ ДОНОР?
-            </h3>
-            <p class="card-text">Ако сакате и вие да станете дел од хуманите луѓе кои спасиле многу човечки животи.</p>
-            <a class="btn btn-info" href="/Account/Register/">Регистрирајте се тука</a>
+    <div class="text-center">
+        <div class="midBox card attentionSeeker">
+            <div class="card-body">
+                <h3 class="card-title">
+                    ДОНИРАЈТЕ КРВНА ПЛАЗМА!
+                </h3>
+                <p class="card-text">Ако вие сте ја победиле битката против <strong>корона вирусот</strong>, а притоа сакате да помогнете и на други луѓе да успеат во тоа.</p>
+                <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
+            </div>
         </div>
     </div>
-    <div class="midBox card">
-        <div class="card-body">
-            <h3 class="card-title">
-                ВЕЌЕ СТЕ ДОНОР?
-            </h3>
-            <p class="card-text">Доколку сакате да се информирате кога повторно може да донирате крв или сакате да промените некои ваши податоци.</p>
-            <a class="btn btn-info" href="/Account/Register/">Создадете електронска книшка</a>
+   
+    <script>
+
+
+        jQuery.get("/Account/getUserInfo/?email=@User.Identity.Name", function(data) {
+          $(".testIme").html(data);
+        });
+
+        
+ 
+
+    </script>
+}
+else
+{
+    <div class="text-center">
+        <h3 style="color: red;">Дарувај крв спаси човечки живот.</h3>
+    </div>
+
+    <p>Да се стане крводарител пред се значи да се биде хуман човек.</p>
+    <p>Преку овој хуман гест, со само една донирана кеса крв, може да спасите и до 3 или 4 животи.</p>
+    <p>Доколку не сте целосно запознаени со овој процес <a href="/Home/Info/">тука</a> може да прочитате повеќе информации поврзани со донирање на крв.</p>
+
+    <div class="text-center">
+        <div class="midBox card">
+            <div class="card-body">
+                <h3 class="card-title">
+                    САКАТЕ ДА СТАНЕТЕ ДОНОР?
+                </h3>
+                <p class="card-text">Ако сакате и вие да станете дел од хуманите луѓе кои спасиле многу човечки животи.</p>
+                <a class="btn btn-info" href="/Account/Register/">Регистрирајте се тука</a>
+            </div>
+        </div>
+        <div class="midBox card">
+            <div class="card-body">
+                <h3 class="card-title">
+                    ВЕЌЕ СТЕ ДОНОР?
+                </h3>
+                <p class="card-text">Доколку сакате да се информирате кога повторно може да донирате крв или сакате да промените некои ваши податоци.</p>
+                <a class="btn btn-info" href="/Account/Login/">Најавете се</a>
             </div>
         </div>
         <div class="midBox card attentionSeeker">
@@ -39,9 +67,12 @@
                 </h3>
                 <p class="card-text">Ако вие сте ја победиле битката против <strong>корона вирусот</strong>, а притоа сакате да помогнете и на други луѓе да успеат во тоа.</p>
                 <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
-                </div>
             </div>
-</div>
+        </div>
+    </div>
+}
+
+
 
 
 
