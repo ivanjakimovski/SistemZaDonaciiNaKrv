@@ -45,5 +45,7 @@ namespace SistemZaDonaciiNaKrv.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<SistemZaDonaciiNaKrv.Models.DonatorFormModel> DonatorFormModels { get; set; }
     }
 }
