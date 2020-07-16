@@ -1,4 +1,4 @@
-﻿@model SistemZaDonaciiNaKrv.Models.BloodDonorModel
+﻿@model List<SistemZaDonaciiNaKrv.Models.DonationModel>
 
 @{
     ViewBag.Title = "GetUserDonations";
@@ -7,44 +7,40 @@
 <h2>GetUserDonations</h2>
 
 <div>
-    <h4>BloodDonorModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+@foreach(var it in Model)
+{
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+        <h4>BloodDonorModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(it2 => it.Id)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(it2 => it.Id)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => it.DonationTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => it.DonationTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => it.City)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => it.City)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-    </dl>
-</div>
+        </dl>
+}
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Home", "Index","Home")
 </p>

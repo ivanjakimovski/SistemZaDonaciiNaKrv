@@ -71,21 +71,29 @@ namespace SistemZaDonaciiNaKrv.Controllers
             return Content(Name);
         }
 
-        [HttpGet]
-        public ActionResult GetUserDonations(string email)
+        public ActionResult GetUserDonations()
         {
-                    //List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
-            BloodDonorModel donor = new BloodDonorModel();
-            //donor.Id = Convert.ToInt32(UserManager.FindByEmail(email).Id.ToString());
-            donor.FirstName = UserManager.FindByEmail(email).FirstName;
-            donor.LastName = UserManager.FindByEmail(email).LastName;
-            donor.email = UserManager.FindByEmail(email).LastName;
-            donor.City = UserManager.FindByEmail(email).City;
-            donor.allDonations = UserManager.FindByEmail(email).allDonations;
-            //return Json(donations, JsonRequestBehavior.AllowGet);
-            return View(donor);
+            List<DonationModel> dm = UserManager.FindByEmail(User.Identity.Name).allDonations;
+            return View(dm);
         }
 
+        //[HttpGet]
+        //public ActionResult GetUserDonations(string email)
+        //{
+        //    //List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
+        //    //BloodDonorModel donor = new BloodDonorModel();
+        //    //donor.Id = Convert.ToInt32(UserManager.FindByEmail(email).Id.ToString());
+        //    //donor.FirstName = UserManager.FindByEmail(email).FirstName;
+        //    //donor.LastName = UserManager.FindByEmail(email).LastName;
+        //    //donor.email = UserManager.FindByEmail(email).LastName;
+        //    //donor.City = UserManager.FindByEmail(email).City;
+        //    //donor.allDonations = UserManager.FindByEmail(email).allDonations;
+        //    //return Json(donations, JsonRequestBehavior.AllowGet);
+        //    //return View(donor);
+        //    List<DonationModel> dm = UserManager.FindByEmail(email).allDonations;
+        //    return View(dm);
+        //}
+        
         [HttpPost]
         public ActionResult getUserDonations(BloodDonorModel dm)
         {
