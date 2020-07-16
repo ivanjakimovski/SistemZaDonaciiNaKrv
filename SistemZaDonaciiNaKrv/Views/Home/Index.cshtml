@@ -5,30 +5,20 @@
 
 @if (Request.IsAuthenticated)
 {
-    <h1>Име презиме: <span class="testIme"> </span></h1>
+    <h1><span class="testIme"> </span></h1>
 
     <div class="text-center">
         <div class="midBox card attentionSeeker">
             <div class="card-body">
-                <h3 class="card-title">
-                    ДОНИРАЈТЕ КРВНА ПЛАЗМА!
-                </h3>
-                <p class="card-text">Ако вие сте ја победиле битката против <strong>корона вирусот</strong>, а притоа сакате да помогнете и на други луѓе да успеат во тоа.</p>
                 <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
             </div>
         </div>
     </div>
    
     <script>
-
-
-        jQuery.get("/Account/getUserInfo/?email=@User.Identity.Name", function(data) {
+        jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
         });
-
-        
- 
-
     </script>
 }
 else
