@@ -6,8 +6,11 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
+        @*<li class="nav-item">
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link text-dark"})
+        </li>*@
+        <li class="nav-item">
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "getUserDonations", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link text-dark" })
         </li>
         <li class="nav-item nav-link text-dark"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>

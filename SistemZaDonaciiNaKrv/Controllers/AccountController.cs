@@ -72,10 +72,25 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         [HttpGet]
-        public ActionResult getUserDonations(string email)
+        public ActionResult GetUserDonations(string email)
         {
-        
-            List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
+                    //List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
+            BloodDonorModel donor = new BloodDonorModel();
+            //donor.Id = Convert.ToInt32(UserManager.FindByEmail(email).Id.ToString());
+            donor.FirstName = UserManager.FindByEmail(email).FirstName;
+            donor.LastName = UserManager.FindByEmail(email).LastName;
+            donor.email = UserManager.FindByEmail(email).LastName;
+            donor.City = UserManager.FindByEmail(email).City;
+            donor.allDonations = UserManager.FindByEmail(email).allDonations;
+            //return Json(donations, JsonRequestBehavior.AllowGet);
+            return View(donor);
+        }
+
+        [HttpPost]
+        public ActionResult getUserDonations(BloodDonorModel dm)
+        {
+            //BloodDonorModel treba da ima email
+            List<DonationModel> donations = UserManager.FindByEmail(dm.email).allDonations;
             return Json(donations, JsonRequestBehavior.AllowGet);
         }
 
