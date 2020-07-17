@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DonatorFormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,6 +184,26 @@
     <Compile Include="Migrations\202007131832030_Zh1.Designer.cs">
       <DependentUpon>202007131832030_Zh1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007151133126_updateModel.cs" />
+    <Compile Include="Migrations\202007151133126_updateModel.Designer.cs">
+      <DependentUpon>202007151133126_updateModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007151240469_test.cs" />
+    <Compile Include="Migrations\202007151240469_test.Designer.cs">
+      <DependentUpon>202007151240469_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007161432401_AddedFormModel.cs" />
+    <Compile Include="Migrations\202007161432401_AddedFormModel.Designer.cs">
+      <DependentUpon>202007161432401_AddedFormModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007161504209_UpdatedModel.cs" />
+    <Compile Include="Migrations\202007161504209_UpdatedModel.Designer.cs">
+      <DependentUpon>202007161504209_UpdatedModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007161513229_UpdatedModel2.cs" />
+    <Compile Include="Migrations\202007161513229_UpdatedModel2.Designer.cs">
+      <DependentUpon>202007161513229_UpdatedModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -191,6 +212,7 @@
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\DonationLocationModel.cs" />
     <Compile Include="Models\DonationModel.cs" />
+    <Compile Include="Models\DonatorFormModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -594,6 +616,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\DonatorForm\Create.cshtml" />
+    <Content Include="Views\DonatorForm\Delete.cshtml" />
+    <Content Include="Views\DonatorForm\Details.cshtml" />
+    <Content Include="Views\DonatorForm\Edit.cshtml" />
+    <Content Include="Views\DonatorForm\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -609,6 +636,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007131832030_Zh1.resx">
       <DependentUpon>202007131832030_Zh1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007151133126_updateModel.resx">
+      <DependentUpon>202007151133126_updateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007151240469_test.resx">
+      <DependentUpon>202007151240469_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161432401_AddedFormModel.resx">
+      <DependentUpon>202007161432401_AddedFormModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161504209_UpdatedModel.resx">
+      <DependentUpon>202007161504209_UpdatedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161513229_UpdatedModel2.resx">
+      <DependentUpon>202007161513229_UpdatedModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,352 @@
+﻿@model SistemZaDonaciiNaKrv.Models.DonatorFormModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DonatorFormModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliOdobreno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliOdobreno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliDenesSeCuvstvuvateZdravi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliDenesSeCuvstvuvateZdravi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliDenesNastinkaGrip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliDenesNastinkaGrip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliLekuvaleZabi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliLekuvaleZabi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliVakcina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliVakcina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliOperacija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliOperacija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliOperacijaSeriozniMedIspituvanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliOperacijaSeriozniMedIspituvanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliTetovaza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliTetovaza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliUbod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliUbod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliTransfuzija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliTransfuzija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliBesnilo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliBesnilo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliZoltica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliZoltica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliBremeni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliBremeni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliLekovi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliLekovi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliHipofiza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliHipofiza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliMozocnaObvivka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliMozocnaObvivka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliRoznica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliRoznica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliZolticaMalarija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliZolticaMalarija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliSrceviPritisok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliSrceviPritisok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliAlergjaAstma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliAlergjaAstma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliGrcevi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliGrcevi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliHronicni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliHronicni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliToksoPlazmoza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliToksoPlazmoza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliBruceloza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliBruceloza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliHiv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliHiv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliDroga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliDroga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliPariIliDrogaZaSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliPariIliDrogaZaSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliHemofilijaSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliHemofilijaSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliOdnosSoDrugMazi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliOdnosSoDrugMazi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliSexSoHivPozitivenIliZoltica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliSexSoHivPozitivenIliZoltica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaDroga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliSexSoPrimatelNaDroga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliCreutzfeldtJokob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliCreutzfeldtJokob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.daliPolovoPrenoslivaBolest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daliPolovoPrenoslivaBolest)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

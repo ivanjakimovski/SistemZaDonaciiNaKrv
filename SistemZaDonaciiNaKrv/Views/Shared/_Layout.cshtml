@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - Донирај Крв</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 @*<body>
@@ -58,8 +59,14 @@
                             <a class="nav-link text-dark" href="/Home/About">За нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Contact">Контакт информации</a>
+                            <a class="nav-link text-dark" href="/Home/Info">Информации</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/Contact">Контакт</a>
+                        </li>
+
+
+
                         @Html.Partial("_LoginPartial")
                         @*<li class="nav-item">
             <a class="nav-link text-dark" href="/Account/Login/">Логирај се</a>
