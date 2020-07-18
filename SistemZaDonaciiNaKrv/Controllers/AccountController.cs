@@ -67,16 +67,23 @@ namespace SistemZaDonaciiNaKrv.Controllers
         [HttpGet]
         public ActionResult getUserName(string email)
         {
-            string Name = UserManager.FindByEmail(email).FirstName;
-            return Content(Name);
+            string FirstName = UserManager.FindByEmail(email).FirstName;
+            string LastName = UserManager.FindByEmail(email).LastName;
+            return Content(FirstName + " " + LastName);
         }
 
         [HttpGet]
-        public ActionResult getUserDonations(string email)
+        public ActionResult getUserDonationsJson(string email)
         {
         
             List<DonationModel> donations = UserManager.FindByEmail(email).allDonations;
             return Json(donations, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetUserDonations()
+        {
+            List<DonationModel> dm = UserManager.FindByEmail(User.Identity.Name).allDonations;
+            return View(dm);
         }
 
         //
@@ -157,7 +164,10 @@ namespace SistemZaDonaciiNaKrv.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterViewModel model = new RegisterViewModel();
+            model.Genders.Add("Машки");
+            model.Genders.Add("Женски");
+            return View(model);
         }
 
         //
@@ -169,7 +179,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {FirstName = model.FirstName, UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName, City = model.City, Address = model.Address, Gender = model.Gender,  UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

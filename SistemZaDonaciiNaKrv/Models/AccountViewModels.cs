@@ -66,13 +66,33 @@ namespace SistemZaDonaciiNaKrv.Models
     {
 
         [Required]
-        [Display(Name = "FirstName")]
+        [Display(Name = "Име:")]
         public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "Презиме:")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Адреса:")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Град:")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "Пол:")]
+        public string Gender { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Е-адреса")]
         public string Email { get; set; }
+
+
+        [Required]
+        [Display(Name = "Телефон")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -80,10 +100,17 @@ namespace SistemZaDonaciiNaKrv.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        public List<string> Genders { get; set; }
+
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public RegisterViewModel()
+        {
+            Genders = new List<string>();
+        }
     }
 
     public class ResetPasswordViewModel

@@ -19,11 +19,48 @@
     </div>
     <div class="form-group">
 
-        <label class="col-md-2 control-label">FirstName</label>
+        <label class="col-md-2 control-label">Име</label>
         <div class="col-md-5">
             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
         </div>
     </div>
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Презиме</label>
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Град</label>
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Адреса</label>
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Телефон</label>
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Пол</label>
+        <div class="col-md-5">
+            @Html.DropDownListFor(m => m.Gender, new SelectList(Model.Genders), new { @class = "form-control" })
+        </div>
+    </div>
+
+
     <div class="form-group">
         <label class="col-md-2 control-label">Лозинка</label>
         <div class="col-md-5">

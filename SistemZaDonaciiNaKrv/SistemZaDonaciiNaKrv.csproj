@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202007161513229_UpdatedModel2.Designer.cs">
       <DependentUpon>202007161513229_UpdatedModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007181257107_AddedPropperties.cs" />
+    <Compile Include="Migrations\202007181257107_AddedPropperties.Designer.cs">
+      <DependentUpon>202007181257107_AddedPropperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -621,6 +625,10 @@
     <Content Include="Views\DonatorForm\Details.cshtml" />
     <Content Include="Views\DonatorForm\Edit.cshtml" />
     <Content Include="Views\DonatorForm\Index.cshtml" />
+    <Content Include="Views\Account\GetUserDonations.cshtml" />
+    <Content Include="Views\Manage\ChangeCity.cshtml" />
+    <Content Include="Views\Manage\ChangeAddress.cshtml" />
+    <Content Include="Views\Manage\ChangePhoneNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -651,6 +659,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007161513229_UpdatedModel2.resx">
       <DependentUpon>202007161513229_UpdatedModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007181257107_AddedPropperties.resx">
+      <DependentUpon>202007181257107_AddedPropperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

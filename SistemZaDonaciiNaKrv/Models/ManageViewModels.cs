@@ -7,9 +7,14 @@ namespace SistemZaDonaciiNaKrv.Models
 {
     public class IndexViewModel
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+       
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
@@ -82,5 +87,19 @@ namespace SistemZaDonaciiNaKrv.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    }
+
+    public class ChangeCityViewModel
+    {
+        public string City { get; set; }
+    }
+
+    public class ChangeAddressViewModel
+    {
+        public string Address { get; set; }
+    }
+    public class ChangePhoneViewModel
+    {
+        public string PhoneNumber { get; set; }
     }
 }

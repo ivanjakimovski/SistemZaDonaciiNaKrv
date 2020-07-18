@@ -1,22 +1,17 @@
 ﻿@model IEnumerable<SistemZaDonaciiNaKrv.Models.DonatorFormModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Листа со одговорени формулари";
 }
 
-<h2>Index</h2>
+<h2>Листа со одговорени формулари:</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DonorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliOdobreno)
-        </th>
+        </th>*@
+
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -33,241 +28,48 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.daliDenesSeCuvstvuvateZdravi)
+            <span>Одобрено:</span>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliDenesNastinkaGrip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliLekuvaleZabi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliVakcina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliOperacija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliOperacijaSeriozniMedIspituvanja)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliTetovaza)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliUbod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliTransfuzija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliBesnilo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliZoltica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliBremeni)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliLekovi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliHipofiza)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliMozocnaObvivka)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliRoznica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliZolticaMalarija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliSrceviPritisok)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliAlergjaAstma)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliGrcevi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliHronicni)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliToksoPlazmoza)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliBruceloza)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliHiv)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliDroga)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliPariIliDrogaZaSex)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliHemofilijaSex)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliOdnosSoDrugMazi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliSexSoHivPozitivenIliZoltica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaDroga)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliCreutzfeldtJokob)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.daliPolovoPrenoslivaBolest)
-        </th>
-        <th></th>
+
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DonorId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliOdobreno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliDenesSeCuvstvuvateZdravi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliDenesNastinkaGrip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliLekuvaleZabi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliVakcina)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliOperacija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliOperacijaSeriozniMedIspituvanja)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliTetovaza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliUbod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliTransfuzija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliBesnilo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliZoltica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliBremeni)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliLekovi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliHipofiza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliMozocnaObvivka)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliRoznica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliZolticaMalarija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliSrceviPritisok)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliAlergjaAstma)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliGrcevi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliHronicni)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliToksoPlazmoza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliBruceloza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliHiv)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliDroga)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliPariIliDrogaZaSex)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliHemofilijaSex)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliOdnosSoDrugMazi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliSexSoMazKojImalSexSoDrugMaz)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliSexSoHivPozitivenIliZoltica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliSexSoPrimatelNaDroga)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliSexSoPrimatelNaPariIliDrogaZaSex)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliCreutzfeldtJokob)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.daliPolovoPrenoslivaBolest)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<tr>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.DonorId)
+    </td>*@
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @if (item.daliOdobreno)
+        {
+            <strong><span style="">Да</span></strong>
+        }
+        else
+        {
+            <strong><span style="">Не</span></strong>
+        }
+    </td>
+
+    <td>
+        @Html.ActionLink("Преглед на формулар", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>

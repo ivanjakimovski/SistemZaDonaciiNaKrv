@@ -1,0 +1,39 @@
+﻿@model List<SistemZaDonaciiNaKrv.Models.DonationModel>
+
+@{
+    ViewBag.Title = "GetUserDonations";
+}
+
+<h4>Your Donations</h4>
+@if (Model.Count < 1)
+{
+    <div>
+        Nemate donirano krv.
+    </div>
+}
+else
+{
+    <div>
+        <table class="table">
+            <thead>
+                <tr class="table-info">
+                    <th>No.</th>
+                    <th>Time</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            @for (int i = 0, n = Model.Count; i < n; i++)
+            {
+                <tr class="@(i%2==0?"table-default":"table-active")">
+                    <td>@Html.DisplayFor(it2 => Model[i].Id)</td>
+                    <td>@Html.DisplayFor(it2 => Model[i].DonationTime)</td>
+                    <td>@Html.DisplayFor(it2 => Model[i].City)</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Home", "Index", "Home")
+</p>

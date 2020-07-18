@@ -1,0 +1,15 @@
+﻿@model SistemZaDonaciiNaKrv.Models.ChangePhoneViewModel
+@{
+    ViewBag.Title = "ChangePhoneNumber";
+}
+
+<h2>ChangePhoneNumber</h2>
+
+@using (Html.BeginForm("ChangePhoneNumber", "Manage"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNumber)
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Промени</button>
+}

@@ -1,346 +1,1060 @@
-﻿@model SistemZaDonaciiNaKrv.Models.DonatorFormModel
+﻿@*@model SistemZaDonaciiNaKrv.Models.DonatorFormModel
+
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>DonatorFormModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DonorId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonorId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliOdobreno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliOdobreno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliDenesSeCuvstvuvateZdravi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliDenesSeCuvstvuvateZdravi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliDenesNastinkaGrip)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliDenesNastinkaGrip)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliLekuvaleZabi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliLekuvaleZabi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliVakcina)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliVakcina)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliOperacija)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliOperacija)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliOperacijaSeriozniMedIspituvanja)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliOperacijaSeriozniMedIspituvanja)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliTetovaza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliTetovaza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliUbod)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliUbod)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliTransfuzija)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliTransfuzija)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliBesnilo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliBesnilo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliZoltica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliZoltica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliBremeni)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliBremeni)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliLekovi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliLekovi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliHipofiza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliHipofiza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliMozocnaObvivka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliMozocnaObvivka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliRoznica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliRoznica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliZolticaMalarija)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliZolticaMalarija)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliSrceviPritisok)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliSrceviPritisok)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliAlergjaAstma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliAlergjaAstma)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliGrcevi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliGrcevi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliHronicni)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliHronicni)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliToksoPlazmoza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliToksoPlazmoza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliBruceloza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliBruceloza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliHiv)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliHiv)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliDroga)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliDroga)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliPariIliDrogaZaSex)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliPariIliDrogaZaSex)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliHemofilijaSex)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliHemofilijaSex)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliOdnosSoDrugMazi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliOdnosSoDrugMazi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliSexSoHivPozitivenIliZoltica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliSexSoHivPozitivenIliZoltica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaDroga)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliSexSoPrimatelNaDroga)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliCreutzfeldtJokob)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliCreutzfeldtJokob)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.daliPolovoPrenoslivaBolest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daliPolovoPrenoslivaBolest)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+
+@model SistemZaDonaciiNaKrv.Models.DonatorFormModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Create";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>DonatorFormModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DonorId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DonorId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliOdobreno)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliOdobreno)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliDenesSeCuvstvuvateZdravi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliDenesSeCuvstvuvateZdravi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliDenesNastinkaGrip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliDenesNastinkaGrip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliLekuvaleZabi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliLekuvaleZabi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliVakcina)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliVakcina)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliOperacija)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliOperacija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliOperacijaSeriozniMedIspituvanja)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliOperacijaSeriozniMedIspituvanja)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliTetovaza)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliTetovaza)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliUbod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliUbod)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliTransfuzija)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliTransfuzija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliBesnilo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliBesnilo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliZoltica)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliZoltica)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliBremeni)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliBremeni)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliLekovi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliLekovi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliHipofiza)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliHipofiza)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliMozocnaObvivka)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliMozocnaObvivka)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliRoznica)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliRoznica)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliZolticaMalarija)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliZolticaMalarija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliSrceviPritisok)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliSrceviPritisok)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliAlergjaAstma)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliAlergjaAstma)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliGrcevi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliGrcevi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliHronicni)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliHronicni)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliToksoPlazmoza)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliToksoPlazmoza)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliBruceloza)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliBruceloza)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliHiv)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliHiv)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliDroga)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliDroga)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliPariIliDrogaZaSex)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliPariIliDrogaZaSex)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliHemofilijaSex)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliHemofilijaSex)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliOdnosSoDrugMazi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliOdnosSoDrugMazi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliSexSoMazKojImalSexSoDrugMaz)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliSexSoHivPozitivenIliZoltica)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliSexSoHivPozitivenIliZoltica)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaDroga)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliSexSoPrimatelNaDroga)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliCreutzfeldtJokob)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliCreutzfeldtJokob)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.daliPolovoPrenoslivaBolest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.daliPolovoPrenoslivaBolest)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<h2>Преглед на формулар</h2>
+
+<style>
+    .form-horizontal {
+        border: 2px solid black;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    span.checkBoxStatus {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>DonatorFormModel</h4>
+        <hr />
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DonorId, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.DonorId, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DonorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.daliOdobreno, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+            <div class="checkbox">
+                                @Html.EditorFor(model => model.daliOdobreno)
+            <span class="checkBoxStatus"></span>
+            @Html.ValidationMessageFor(model => model.daliOdobreno, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliDenesSeCuvstvuvateZdravi, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliDenesSeCuvstvuvateZdravi)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+           
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliDenesNastinkaGrip, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliDenesNastinkaGrip)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliLekuvaleZabi, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliLekuvaleZabi)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliVakcina, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliVakcina)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliOperacija, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliOperacija)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliOperacijaSeriozniMedIspituvanja, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliOperacijaSeriozniMedIspituvanja)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliTetovaza, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliTetovaza)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliUbod, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliUbod)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliTransfuzija, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliTransfuzija)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliBesnilo, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliBesnilo)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliZoltica, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliZoltica)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliBremeni, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliBremeni)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliLekovi, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliLekovi)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliHipofiza, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliHipofiza)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliMozocnaObvivka, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliMozocnaObvivka)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliRoznica, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliRoznica)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliZolticaMalarija, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliZolticaMalarija)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliSrceviPritisok, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliSrceviPritisok)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliAlergjaAstma, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliAlergjaAstma)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliGrcevi, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliGrcevi)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliHronicni, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliHronicni)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliToksoPlazmoza, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliToksoPlazmoza)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliBruceloza, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliBruceloza)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliHiv, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliHiv)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliDroga, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliDroga)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliPariIliDrogaZaSex, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliPariIliDrogaZaSex)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliHemofilijaSex, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliHemofilijaSex)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliOdnosSoDrugMazi, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliOdnosSoDrugMazi)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliSexSoMazKojImalSexSoDrugMaz, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliSexSoMazKojImalSexSoDrugMaz)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliSexSoHivPozitivenIliZoltica, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliSexSoHivPozitivenIliZoltica)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliSexSoPrimatelNaDroga, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+
+                    @if (Model.daliSexSoPrimatelNaDroga)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliSexSoPrimatelNaPariIliDrogaZaSex, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliSexSoPrimatelNaPariIliDrogaZaSex)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliCreutzfeldtJokob, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliCreutzfeldtJokob)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daliPolovoPrenoslivaBolest, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-1">
+                <div class="checkbox">
+                    @if (Model.daliPolovoPrenoslivaBolest)
+                    {
+                        <span style="color:green">Да</span>
+                    }
+                    else
+                    {
+                        <span style="color:red">Не</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="" class="btn btn-primary">Одобори</a>
+                <a href="" class="btn btn-primary">Одбиј</a>
+                @Html.ActionLink("Врати се назад", "Index", "DonatorForm", new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section scripts{
+    <script>
+        function boxChecker () {
+            if ($(this).is(":checked")) {
+                $(this).parent().children(".checkBoxStatus").text("Да");
+                $(this).parent().children(".checkBoxStatus").css("color", "green");
+            }
+            else {
+                $(this).parent().children(".checkBoxStatus").text("Не");
+                $(this).parent().children(".checkBoxStatus").css("color", "red");
+            }
+        }
+        $(document).ready(function () {
+            var forms = document.querySelectorAll(".form-group");
+            forms.forEach(function (it, i) {
+                if (i % 2 == 0)
+                    it.classList.add("table-default");
+                else
+                    it.classList.add("table-secondary");
+            });
+            $("input.check-box").each(boxChecker);
+
+            $(".btn[type=\"submit\"]").hover(function () {
+                $(this).removeClass("btn-primary");
+                $(this).addClass("btn-success");
+            }, function () {
+                $(this).addClass("btn-primary");
+                $(this).removeClass("btn-success");
+            });
+            $(".btn[href^=\"/DonatorForm\"]").hover(function () {
+                $(this).removeClass("btn-default");
+                $(this).addClass("btn-danger");
+            }, function () {
+                $(this).addClass("btn-default");
+                $(this).removeClass("btn-danger");
+            });
+            $("input.check-box").click(boxChecker);
+        });
+    </script>
+}

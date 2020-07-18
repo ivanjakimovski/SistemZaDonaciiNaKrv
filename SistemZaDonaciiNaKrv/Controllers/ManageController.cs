@@ -64,8 +64,19 @@ namespace SistemZaDonaciiNaKrv.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+
+            string FirstName = UserManager.FindById(userId).FirstName;
+            string LastName = UserManager.FindById(userId).LastName;
+            string City = UserManager.FindById(userId).City;
+            string Address = UserManager.FindById(userId).Address;
+
+
             var model = new IndexViewModel
             {
+                FirstName = FirstName,
+                LastName = LastName,
+                City = City,
+                Address = Address,
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
@@ -104,6 +115,57 @@ namespace SistemZaDonaciiNaKrv.Controllers
         public ActionResult AddPhoneNumber()
         {
             return View();
+        }
+
+        public ActionResult ChangeCity()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            ChangeCityViewModel model = new ChangeCityViewModel();
+            model.City = user.City;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeCity(ChangeCityViewModel model)
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            user.City = model.City;
+            UserManager.Update(user);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangeAddress()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            ChangeAddressViewModel model = new ChangeAddressViewModel();
+            model.Address = user.Address;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeAddress(ChangeAddressViewModel model)
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            user.Address = model.Address;
+            UserManager.Update(user);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangePhoneNumber()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            ChangePhoneViewModel model = new ChangePhoneViewModel();
+            model.PhoneNumber = user.PhoneNumber;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePhoneNumber(ChangePhoneViewModel model)
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            user.PhoneNumber = model.PhoneNumber;
+            UserManager.Update(user);
+            return RedirectToAction("Index");
         }
 
         //
