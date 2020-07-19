@@ -13,8 +13,6 @@ namespace SistemZaDonaciiNaKrv.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //var controller = new AccountController();
-
         private ApplicationUserManager _userManager;
 
         public ApplicationUserManager UserManager
@@ -45,14 +43,12 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
             List<DonationModel> donations;
             ViewBag.lastDonationDate = new DateTime();
-            //ViewBag.lastDonationDate = new int();
 
             if (Request.IsAuthenticated == true)
             {
                 donations = user.allDonations;
 
                 ViewBag.lastDonationDate = donations.Count > 0 ? donations[donations.Count - 1].DonationTime : new DateTime();
-                //ViewBag.lastDonationDate = donations.Count;
             }
 
 

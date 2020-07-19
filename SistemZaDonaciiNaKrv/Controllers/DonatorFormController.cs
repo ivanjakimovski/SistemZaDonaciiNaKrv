@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using SistemZaDonaciiNaKrv.Models;
 
 namespace SistemZaDonaciiNaKrv.Controllers
@@ -13,6 +15,30 @@ namespace SistemZaDonaciiNaKrv.Controllers
     public class DonatorFormController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        private ApplicationUserManager _userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        public DonatorFormController()
+        {
+
+        }
+
+        public DonatorFormController(ApplicationUserManager userManager)
+        {
+            var UserManager = userManager;
+        }
 
         // GET: DonatorForm
         public ActionResult Index()
@@ -38,7 +64,18 @@ namespace SistemZaDonaciiNaKrv.Controllers
         // GET: DonatorForm/Create
         public ActionResult Create()
         {
-            return View();
+            var user = UserManager.FindById(User.Identity.GetUserId());
+
+            DonatorFormModel dm = new DonatorFormModel();
+            //dm.DonorId = Convert.ToInt32(User.Identity.GetUserId());
+            dm.Name = user.FirstName;
+            dm.LastName=user.LastName;
+            dm.Address=user.Address;
+            dm.Phone=user.PhoneNumber;
+            dm.Email = user.Email;
+                
+
+            return View(dm);
         }
 
         // POST: DonatorForm/Create
