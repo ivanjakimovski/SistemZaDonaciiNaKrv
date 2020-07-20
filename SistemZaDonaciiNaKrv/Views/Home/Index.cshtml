@@ -14,6 +14,10 @@
                 <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
             </div>
         </div>
+
+        @*@Html.Partial("_UserDonations", ViewBag.donations)*@
+        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
+        <div id="blabla"></div>*@
     </div>
    
     <script>

@@ -629,6 +629,7 @@
     <Content Include="Views\Manage\ChangeCity.cshtml" />
     <Content Include="Views\Manage\ChangeAddress.cshtml" />
     <Content Include="Views\Manage\ChangePhoneNumber.cshtml" />
+    <Content Include="Views\Shared\_UserDonations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

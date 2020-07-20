@@ -39,20 +39,25 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         public ActionResult Index()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
-
-            List<DonationModel> donations;
-            ViewBag.lastDonationDate = new DateTime();
 
             if (Request.IsAuthenticated == true)
             {
-                donations = user.allDonations;
+                var user = UserManager.FindById(User.Identity.GetUserId());
+                ViewBag.lastDonationDate = new DateTime();
+                List<DonationModel> donations = user.allDonations;
+                ViewBag.donations = donations;
 
                 ViewBag.lastDonationDate = donations.Count > 0 ? donations[donations.Count - 1].DonationTime : new DateTime();
             }
 
 
             return View();
+        }
+
+        public PartialViewResult PartialUserDonations()
+        {
+            List<DonationModel> dm = UserManager.FindById(User.Identity.GetUserId()).allDonations.ToList();
+            return PartialView("_UserDonations", dm);
         }
 
         public ActionResult About()
