@@ -48,6 +48,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
                 ViewBag.donations = donations;
 
                 ViewBag.lastDonationDate = donations.Count > 0 ? donations[donations.Count - 1].DonationTime : new DateTime();
+                return View(donations);
             }
 
 

@@ -10,7 +10,7 @@ namespace SistemZaDonaciiNaKrv.Models
     {
         [Key]
         public int Id { get; set; }
-        public int DonorId { get; set; }
+        public string DonorId { get; set; }
         public bool daliOdobreno { get; set; }
         [Display(Name = "Име:")]
         public string Name { get; set; }

@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202007181257107_AddedPropperties.Designer.cs">
       <DependentUpon>202007181257107_AddedPropperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007211023153_changedDonatorFormModel.cs" />
+    <Compile Include="Migrations\202007211023153_changedDonatorFormModel.Designer.cs">
+      <DependentUpon>202007211023153_changedDonatorFormModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -663,6 +667,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007181257107_AddedPropperties.resx">
       <DependentUpon>202007181257107_AddedPropperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007211023153_changedDonatorFormModel.resx">
+      <DependentUpon>202007211023153_changedDonatorFormModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

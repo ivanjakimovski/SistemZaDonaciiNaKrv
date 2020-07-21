@@ -67,7 +67,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
 
             DonatorFormModel dm = new DonatorFormModel();
-            //dm.DonorId = Convert.ToInt32(User.Identity.GetUserId());
+            dm.DonorId = user.Id;
             dm.Name = user.FirstName;
             dm.LastName=user.LastName;
             dm.Address=user.Address;
@@ -150,6 +150,18 @@ namespace SistemZaDonaciiNaKrv.Controllers
             db.DonatorFormModels.Remove(donatorFormModel);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult ApproveForm(int id)
+        {
+            var formSubmit = db.DonatorFormModels.Find(id);
+            formSubmit.daliOdobreno = true;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)

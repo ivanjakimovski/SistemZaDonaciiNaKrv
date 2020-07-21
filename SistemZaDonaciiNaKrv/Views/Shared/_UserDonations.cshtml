@@ -4,11 +4,11 @@
     ViewBag.Title = "GetUserDonations";
 }
 
-<h4>Your Donations</h4>
+<h4>Вашите донации: </h4>
 @if (Model.Count < 1)
 {
     <div>
-        Nemate donirano krv.
+        Немате донирано крв.
     </div>
 }
 else
@@ -17,9 +17,9 @@ else
         <table class="table">
             <thead>
                 <tr class="table-info">
-                    <th>No.</th>
-                    <th>Time</th>
-                    <th>City</th>
+                    <th>Бр.</th>
+                    <th>Датум</th>
+                    <th>Град</th>
                 </tr>
             </thead>
             @for (int i = 0, n = Model.Count; i < n; i++)

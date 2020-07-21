@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<SistemZaDonaciiNaKrv.Models.DonationModel>
+
+@{
     ViewBag.Title = "Насловна страна";
 }
 
@@ -8,16 +10,25 @@
     <h1><span class="testIme"> </span></h1>
 
     <div class="text-center">
-        <div class="midBox card attentionSeeker">
+
+        <div>
+            Вашата последна донација:
+            <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
+        </div>
+
+        <div style="max-width:500px">
+            @Html.Partial("_UserDonations", Model)
+        </div>
+       
+        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
+        <div id="blabla"></div>*@
+
+        <div class="midBox card attentionSeeker float-sm-right">
             <div class="card-body">
-                <span>@(ViewBag.lastDonationDate==new DateTime()?"Nemate Donirano Krv": ViewBag.lastDonationDate)</span>
+               
                 <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
             </div>
         </div>
-
-        @*@Html.Partial("_UserDonations", ViewBag.donations)*@
-        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
-        <div id="blabla"></div>*@
     </div>
    
     <script>
