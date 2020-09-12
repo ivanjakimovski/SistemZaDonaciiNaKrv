@@ -10,5 +10,6 @@ namespace SistemZaDonaciiNaKrv.Models
         public int Id { get; set; }
         public DateTime DonationTime { get; set; }
         public string City { get; set; }
+        public bool isDone { get; set; }
     }
 }
