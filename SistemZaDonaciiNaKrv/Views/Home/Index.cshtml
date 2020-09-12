@@ -7,29 +7,40 @@
 
 @if (Request.IsAuthenticated)
 {
-    <h1><span class="testIme"> </span></h1>
+<h1>
+    <span class="testIme"></span>
+    @if (User.IsInRole("Admin"))
+    {
+        <span> (Admin)</span>
+    }
+</h1>
 
-    <div class="text-center">
+<div class="text-center">
 
-        <div>
-            Вашата последна донација:
-            <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
-        </div>
+    <div>
+        Вашата последна донација:
+        <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
+    </div>
 
-        <div style="max-width:500px">
-            @Html.Partial("_UserDonations", Model)
-        </div>
-       
-        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
+    <div style="max-width:500px">
+        @Html.Partial("_UserDonations", Model)
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Add Doctor", "Home", "AllDonorsView");
+    }
+
+    @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
         <div id="blabla"></div>*@
 
-        <div class="midBox card attentionSeeker float-sm-right">
-            <div class="card-body">
-               
-                <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
-            </div>
+    <div class="midBox card attentionSeeker float-sm-right">
+        <div class="card-body">
+
+            <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
         </div>
     </div>
+</div>
    
     <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {

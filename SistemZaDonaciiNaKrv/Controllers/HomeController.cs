@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using SistemZaDonaciiNaKrv.Models;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+//using WebGrease.Css.Extensions;
 
 namespace SistemZaDonaciiNaKrv.Controllers
 {
@@ -59,6 +61,14 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             List<DonationModel> dm = UserManager.FindById(User.Identity.GetUserId()).allDonations.ToList();
             return PartialView("_UserDonations", dm);
+        }
+
+        public ActionResult AllDonorsView()
+        {
+
+            //IQueryable<ApplicationUser> au = UserManager.Users;
+
+            return View(/*au*/);
         }
 
         public ActionResult About()
