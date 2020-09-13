@@ -1,5 +1,4 @@
-﻿@*@model List<SistemZaDonaciiNaKrv.Models.ApplicationUser>*@
-@model IQueryable
+﻿@model List<SistemZaDonaciiNaKrv.Models.ApplicationUser>
 
 @{
     ViewBag.Title = "AllDonorsView";
@@ -9,6 +8,8 @@
 
 @foreach (var m in Model)
 {
+    <div>Name: @m.FirstName Email: @m.Email <a href="/Home/MakeUserDoctor?email=@m.Email">Make Doctor</a></div> 
+
 
 }
 

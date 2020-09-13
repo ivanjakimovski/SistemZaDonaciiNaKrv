@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using SistemZaDonaciiNaKrv.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -63,12 +64,40 @@ namespace SistemZaDonaciiNaKrv.Controllers
             return PartialView("_UserDonations", dm);
         }
 
+        
         public ActionResult AllDonorsView()
         {
 
-            //IQueryable<ApplicationUser> au = UserManager.Users;
+            List<ApplicationUser> list = new List<ApplicationUser>();
 
-            return View(/*au*/);
+            foreach(ApplicationUser user in UserManager.Users.ToList())
+            {
+                foreach(var item in user.Roles)
+                {
+                    if(item.RoleId == "3" || item.RoleId == "2")
+                    {
+                        continue;
+                    } else 
+                    {
+                        list.Add(user);
+                    }
+                }
+                
+             
+            }
+
+            return View(list);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult MakeUserDoctor(string email)
+        {
+            var user = UserManager.FindByEmail(email);
+            UserManager.RemoveFromRole(user.Id, "Donor");
+            UserManager.AddToRole(user.Id, "Doctor");
+
+            return RedirectToAction("AllDonorsView");
         }
 
         public ActionResult About()

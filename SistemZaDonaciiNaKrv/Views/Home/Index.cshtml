@@ -28,7 +28,7 @@
 
     @if (User.IsInRole("Admin"))
     {
-        @Html.ActionLink("Add Doctor", "Home", "AllDonorsView");
+        @Html.ActionLink("Add Doctor", "AllDonorsView", "Home");
     }
 
     @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
