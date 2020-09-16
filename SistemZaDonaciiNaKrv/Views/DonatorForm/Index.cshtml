@@ -72,6 +72,13 @@
                     @Html.ActionLink("Преглед на формулар", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })
                 </td>
+
+                <td>
+                    @if (item.daliOdobreno)
+                    {
+                        <a href="#" class="btn btn-primary">Закажи термин</a>
+                    }
+                </td>  
             </tr>
         }
    
