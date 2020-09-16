@@ -51,6 +51,8 @@ namespace SistemZaDonaciiNaKrv.Controllers
                 ViewBag.donations = donations;
 
                 ViewBag.lastDonationDate = donations.Count > 0 ? donations[donations.Count - 1].DonationTime : new DateTime();
+                ViewBag.lastDonationDatePlusSixMonths = donations.Count > 0 ? donations[donations.Count - 1].DonationTime.AddMonths(6) : new DateTime();
+                //ViewBag.lastDonationDatePlusSixMonths = lastDonationDatePlusSixMonths.ToString();
                 return View(donations);
             }
 
@@ -65,6 +67,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         
+        [Authorize(Roles = "Admin")]
         public ActionResult AllDonorsView()
         {
 

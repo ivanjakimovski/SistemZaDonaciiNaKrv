@@ -7,41 +7,92 @@
 
 @if (Request.IsAuthenticated)
 {
-<h1>
-    <span class="testIme"></span>
-    @if (User.IsInRole("Admin"))
-    {
-        <span> (Admin)</span>
-    }
-</h1>
 
-<div class="text-center">
 
-    <div>
-        Вашата последна донација:
-        <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
-    </div>
 
-    <div style="max-width:500px">
-        @Html.Partial("_UserDonations", Model)
-    </div>
 
-    @if (User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Add Doctor", "AllDonorsView", "Home");
-    }
 
-    @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
+    <h1>
+        <span class="testIme"></span>
+        @if (User.IsInRole("Admin"))
+        {
+            <span> (Admin)</span>
+        }
+        
+    </h1>
+
+   
+
+    <div class="text-center">
+
+
+        <br />
+       
+
+        <div class="text-center float-right mr-5 mt-5">  Ви преостануваат уште 
+               <div> <span id="countdownTimer" class="font-weight-bold"></span> денови до вашата следна донација. </div>
+               <br />
+                <a href="/DonatorForm/Create" class="btn btn-outline-primary">Пополни формулар
+              </a> </div>
+
+        <div style="max-width:500px">
+            @Html.Partial("_UserDonations", Model)
+
+        </div>
+
+        <br />
+        <br />
+        <div class="float-left">
+            <span class="font-weight-bold">Вашата последна донација:</span>
+            <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
+        </div>
+
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Add Doctor", "AllDonorsView", "Home");
+        }
+
+        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
         <div id="blabla"></div>*@
 
-    @*<div class="midBox card attentionSeeker float-sm-right">
-        <div class="card-body">
+        @*<div class="midBox card attentionSeeker float-sm-right">
+            <div class="card-body">
 
-            <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
-        </div>
-    </div>*@
-</div>
-   
+                <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
+            </div>
+        </div>*@
+
+    </div>
+    <script>
+          // Set the date we're counting down to
+          var countDownDate = new Date("@ViewBag.lastDonationDatePlusSixMonths").getTime();
+
+          // Update the count down every 1 second
+          var x = setInterval(function() {
+
+          // Get today's date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Display the result in the element with id="demo"
+              document.getElementById("countdownTimer").innerHTML = days;
+
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdownTimer").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+    </script>
+
     <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
@@ -78,14 +129,14 @@ else
             </div>
         </div>
         @*<div class="midBox card attentionSeeker">
-            <div class="card-body">
-                <h3 class="card-title">
-                    ДОНИРАЈТЕ КРВНА ПЛАЗМА!
-                </h3>
-                <p class="card-text">Ако вие сте ја победиле битката против <strong>корона вирусот</strong>, а притоа сакате да помогнете и на други луѓе да успеат во тоа.</p>
-                <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
-            </div>
-        </div>*@
+                <div class="card-body">
+                    <h3 class="card-title">
+                        ДОНИРАЈТЕ КРВНА ПЛАЗМА!
+                    </h3>
+                    <p class="card-text">Ако вие сте ја победиле битката против <strong>корона вирусот</strong>, а притоа сакате да помогнете и на други луѓе да успеат во тоа.</p>
+                    <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
+                </div>
+            </div>*@
     </div>
 }
 

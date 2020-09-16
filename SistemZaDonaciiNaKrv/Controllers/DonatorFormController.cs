@@ -41,6 +41,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // GET: DonatorForm
+        [Authorize(Roles = "Doctor")]
         public ActionResult Index()
         {
             return View(db.DonatorFormModels.ToList());
@@ -88,14 +89,18 @@ namespace SistemZaDonaciiNaKrv.Controllers
             if (ModelState.IsValid)
             {
                 db.DonatorFormModels.Add(donatorFormModel);
+                var user = UserManager.FindByEmail(donatorFormModel.Email);
+                user.allDonatorForms.Add(donatorFormModel);
+                UserManager.Update(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Home/Index");
             }
 
             return View(donatorFormModel);
         }
 
         // GET: DonatorForm/Edit/5
+        [Authorize(Roles = "Doctor")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -115,6 +120,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Doctor")]
         public ActionResult Edit([Bind(Include = "Id,DonorId,daliOdobreno,Name,LastName,Address,Phone,Email,daliDenesSeCuvstvuvateZdravi,daliDenesNastinkaGrip,daliLekuvaleZabi,daliVakcina,daliOperacija,daliOperacijaSeriozniMedIspituvanja,daliTetovaza,daliUbod,daliTransfuzija,daliBesnilo,daliZoltica,daliBremeni,daliLekovi,daliHipofiza,daliMozocnaObvivka,daliRoznica,daliZolticaMalarija,daliSrceviPritisok,daliAlergjaAstma,daliGrcevi,daliHronicni,daliToksoPlazmoza,daliBruceloza,daliHiv,daliDroga,daliPariIliDrogaZaSex,daliHemofilijaSex,daliOdnosSoDrugMazi,daliSexSoMazKojImalSexSoDrugMaz,daliSexSoHivPozitivenIliZoltica,daliSexSoPrimatelNaDroga,daliSexSoPrimatelNaPariIliDrogaZaSex,daliCreutzfeldtJokob,daliPolovoPrenoslivaBolest")] DonatorFormModel donatorFormModel)
         {
             if (ModelState.IsValid)
@@ -127,6 +133,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // GET: DonatorForm/Delete/5
+        [Authorize(Roles = "Doctor")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -142,8 +149,9 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // POST: DonatorForm/Delete/5
+        [Authorize(Roles = "Doctor")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+
         public ActionResult DeleteConfirmed(int id)
         {
             DonatorFormModel donatorFormModel = db.DonatorFormModels.Find(id);
@@ -153,6 +161,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Doctor")]
         public ActionResult ApproveForm(int id)
         {
             var formSubmit = db.DonatorFormModels.Find(id);

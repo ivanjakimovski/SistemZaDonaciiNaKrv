@@ -70,7 +70,8 @@
 
                 <td>
                     @Html.ActionLink("Преглед на формулар", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })
+                    <a form-id="@item.Id" class="deleteButton">Избриши формулар</a>
+                    @*@Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })*@
                 </td>
 
                 <td>
@@ -89,7 +90,29 @@
     
 <script>
 
+    $(function () {
+        var table = document.querySelector(".table");
+            $(".deleteButton").on("click", function () {
+               var button = $(this);
+                var button2 = this;
+                bootbox.confirm("Дали сте сигурни?", function (result) {
+                    if (result) {
+                        $.ajax({
+                    url: "/DonatorForm/Delete/" + button.attr("form-id"),
+                    method: "POST",
+                   success: function () {
+                       var row = button2.parentNode.parentNode;
+                       row.parentNode.removeChild(row);
+                           
+                        
+                    }
+                });
+                   }
 
+                })
+               
+            });
+        });
     
 
 

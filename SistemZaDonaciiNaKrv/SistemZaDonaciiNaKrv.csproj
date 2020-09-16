@@ -216,6 +216,14 @@
     <Compile Include="Migrations\202009121856575_newDonationModel.Designer.cs">
       <DependentUpon>202009121856575_newDonationModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009161111341_allDonatorFormAdded.cs" />
+    <Compile Include="Migrations\202009161111341_allDonatorFormAdded.Designer.cs">
+      <DependentUpon>202009161111341_allDonatorFormAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009161332001_changedUserModel.cs" />
+    <Compile Include="Migrations\202009161332001_changedUserModel.Designer.cs">
+      <DependentUpon>202009161332001_changedUserModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -678,6 +686,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009121856575_newDonationModel.resx">
       <DependentUpon>202009121856575_newDonationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161111341_allDonatorFormAdded.resx">
+      <DependentUpon>202009161111341_allDonatorFormAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161332001_changedUserModel.resx">
+      <DependentUpon>202009161332001_changedUserModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

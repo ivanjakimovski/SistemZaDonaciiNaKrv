@@ -17,8 +17,11 @@ namespace SistemZaDonaciiNaKrv.Models
         public string Address { get; set; }
         public string Gender { get; set; }
         public bool hasDonated { get; set; }
+        public string bloodType { get; set; }
 
         public virtual List<DonationModel> allDonations { get; set; }
+
+        public virtual List<DonatorFormModel> allDonatorForms { get; set; }
         public ApplicationUser()
         {
             this.allDonations = new List<DonationModel>();
