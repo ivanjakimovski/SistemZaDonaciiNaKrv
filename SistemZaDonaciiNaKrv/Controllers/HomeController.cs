@@ -67,7 +67,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Doctor")]
         public ActionResult AllDonorsView()
         {
 
@@ -101,6 +101,31 @@ namespace SistemZaDonaciiNaKrv.Controllers
             UserManager.AddToRole(user.Id, "Doctor");
 
             return RedirectToAction("AllDonorsView");
+        }
+
+        [Authorize(Roles = "Doctor")]
+        public ActionResult BookAppointment()
+        {
+            var appointment = Request.QueryString["appointment"];
+            var email = Request.QueryString["email"];
+            var formId = Request.QueryString["formId"];
+
+            var user = UserManager.FindByEmail(email);
+        
+            DonationModel newDonation = new DonationModel();
+            newDonation.City = user.City;
+            newDonation.DonationTime = Convert.ToDateTime(appointment);
+            newDonation.isDone = false;
+
+            user.allDonations.Add(newDonation);
+
+            UserManager.Update(user);
+
+            var formToDelete = db.DonatorFormModels.Find(Convert.ToInt32(formId));
+            db.DonatorFormModels.Remove(formToDelete);
+            db.SaveChanges();
+
+            return Redirect("/DonatorForm/Index");
         }
 
         public ActionResult About()

@@ -7,9 +7,9 @@
 <h4 class="float-left">Вашите донации: </h4>
 @if (Model.Count < 1)
 {
-    <div>
+    <span>
         Немате донирано крв.
-    </div>
+    </span>
 }
 else
 {
@@ -20,15 +20,38 @@ else
                     <th>Бр.</th>
                     <th>Датум</th>
                     <th>Град</th>
+                    <th>Извршена донација</th>
                 </tr>
             </thead>
             @for (int i = 0, n = Model.Count; i < n; i++)
             {
-                <tr class="@(i%2==0?"table-default":"table-active")">
-                    <td>@Html.DisplayFor(it2 => Model[i].Id)</td>
-                    <td>@Html.DisplayFor(it2 => Model[i].DonationTime)</td>
-                    <td>@Html.DisplayFor(it2 => Model[i].City)</td>
-                </tr>
+                if (DateTime.Now.CompareTo(Model[i].DonationTime) > 0)
+                {
+
+        <tr class="table-default">
+            <td>@(i + 1)</td>
+            <td>@Html.DisplayFor(it2 => Model[i].DonationTime)</td>
+            <td>@Html.DisplayFor(it2 => Model[i].City)</td>
+            <td>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check" fill="green" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+                </svg>
+            </td>
+        </tr>
+                }
+                else
+                {
+                    <tr class="table-default">
+                        <td>@(i + 1)</td>
+                        <td>@Html.DisplayFor(it2 => Model[i].DonationTime)</td>
+                        <td>@Html.DisplayFor(it2 => Model[i].City)</td>
+                        <td>
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-three-dots" fill="#a3c2c2" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                            </td>
+                    </tr>
+                }
             }
         </table>
     </div>

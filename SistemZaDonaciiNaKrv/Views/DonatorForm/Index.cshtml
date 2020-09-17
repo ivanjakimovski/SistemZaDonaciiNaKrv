@@ -77,7 +77,33 @@
                 <td>
                     @if (item.daliOdobreno)
                     {
-                        <a href="#" class="btn btn-primary">Закажи термин</a>
+           
+                    <form action="/Home/BookAppointment">
+                        <label for="appointment">Одбери датум:</label>
+                        <input type="date" id="appointment" name="appointment">
+                        <input type="email" id="email" hidden value="@item.Email" form-id="@item.Id" name="email">
+                        <input type="text" id="formId" hidden value="@item.Id" form-id="@item.Id" name="formId">
+                        <input type="submit" value="Закажи" id="deleteButton2" onclick="deleteRow()" class="btn btn-outline-primary float-right">
+                    </form>
+
+                    <script>
+                        function deleteRow() {
+
+                            $("#deleteButton2").on("click", function () {
+                                var button = $(this);
+                                var button2 = this;
+                                        $.ajax({
+                                            url: "/DonatorForm/Delete/" + button.attr("form-id"),
+                                            method: "POST",
+                                            success: function () {
+                                                var row = button2.parentNode.parentNode;
+                                                row.parentNode.removeChild(row);     
+                                            }
+                                        });
+                            });
+                        }
+
+                    </script>
                     }
                 </td>  
             </tr>

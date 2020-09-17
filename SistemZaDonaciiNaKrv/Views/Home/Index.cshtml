@@ -9,61 +9,102 @@
 {
 
 
+    if (User.IsInRole("Doctor"))
+    {
+        <h1>
+            <span class="testIme"></span>
+            @if (User.IsInRole("Admin"))
+            {
+                <span> (Admin)</span>
+            }
+
+        </h1>
+
+        <a href="/DonatorForm/Index" class="btn btn-primary">Прегледај формулари</a>
+
+        <a href="/Home/AllDonorsView" class="btn btn-primary">Прегледај ги сите донори</a>
 
 
 
-    <h1>
-        <span class="testIme"></span>
-        @if (User.IsInRole("Admin"))
-        {
-            <span> (Admin)</span>
-        }
-        
-    </h1>
+        <script>
+        jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
+          $(".testIme").html(data);
+        });
+        </script>
+    }
+
+    if (User.IsInRole("Donor"))
+    {
+        <h1>
+            <span class="testIme"></span>
+            @if (User.IsInRole("Admin"))
+            {
+                <span> (Admin)</span>
+            }
+
+        </h1>
+
+
+
+        <div class="text-center">
+
+
+            <br />
+
+
+            <div class="text-center float-right mr-5 mt-4" style="font-size:20px">
+
+                <br />
+                @if (DateTime.Now.CompareTo(ViewBag.lastDonationDatePlusSixMonths) > 0)
+                {
+                    <span>Пополнете формулар за да</span>
+                <div>добиете термин за донација</div>
+                    <a href="/DonatorForm/Create" class="btn btn-outline-primary">
+                        Пополни формулар
+                    </a>
+                }
+                else
+                {
+                    <span>Ви преостануваат уште</span>
+                    <div> <span id="countdownTimer" class="font-weight-bold"></span> <span class="font-weight-bold"> денови </span> до вашата следна донација. </div>
+                    <a href="/DonatorForm/Create" class="btn btn-outline-primary disabled">
+                        Пополни формулар
+                    </a>
+                }
+
+            </div>
+
+            <div style="max-width:500px">
+                @Html.Partial("_UserDonations", Model)
+
+            </div>
 
    
-
-    <div class="text-center">
-
-
-        <br />
-       
-
-        <div class="text-center float-right mr-5 mt-5">  Ви преостануваат уште 
-               <div> <span id="countdownTimer" class="font-weight-bold"></span> денови до вашата следна донација. </div>
-               <br />
-                <a href="/DonatorForm/Create" class="btn btn-outline-primary">Пополни формулар
-              </a> </div>
-
-        <div style="max-width:500px">
-            @Html.Partial("_UserDonations", Model)
-
-        </div>
-
-        <br />
-        <br />
-        <div class="float-left">
-            <span class="font-weight-bold">Вашата последна донација:</span>
-            <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
-        </div>
-
-        @if (User.IsInRole("Admin"))
-        {
-            @Html.ActionLink("Add Doctor", "AllDonorsView", "Home");
-        }
-
-        @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
-        <div id="blabla"></div>*@
-
-        @*<div class="midBox card attentionSeeker float-sm-right">
-            <div class="card-body">
-
-                <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
+            <br />
+            <div class="float-left" style="font-size:19px">
+                <span class="font-weight-bold">Вашата последна донација:</span>
+                <span>@(ViewBag.lastDonationDate == new DateTime() ? "Немате донирано крв" : ViewBag.lastDonationDate)</span>
             </div>
-        </div>*@
+            <br />
+            <br />
+            <br />
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Add Doctor", "AllDonorsView", "Home");
+            }
 
-    </div>
-    <script>
+            @*@Ajax.ActionLink("View all donations", "PartialUserDonations", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "blabla", InsertionMode = InsertionMode.Replace })
+                <div id="blabla"></div>*@
+
+            @*<div class="midBox card attentionSeeker float-sm-right">
+                    <div class="card-body">
+
+                        <a class="btn btn-info" href="/Account/Register/">Донирајте крвна плазма</a>
+                    </div>
+                </div>*@
+
+        </div>
+        <script>
           // Set the date we're counting down to
           var countDownDate = new Date("@ViewBag.lastDonationDatePlusSixMonths").getTime();
 
@@ -91,13 +132,17 @@
             document.getElementById("countdownTimer").innerHTML = "EXPIRED";
           }
         }, 1000);
-    </script>
+        </script>
 
-    <script>
+        <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
         });
-    </script>
+        </script>
+    }
+
+
+
 }
 else
 {

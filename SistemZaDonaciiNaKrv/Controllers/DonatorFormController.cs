@@ -88,7 +88,6 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DonatorFormModels.Add(donatorFormModel);
                 var user = UserManager.FindByEmail(donatorFormModel.Email);
                 user.allDonatorForms.Add(donatorFormModel);
                 UserManager.Update(user);

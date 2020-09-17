@@ -1,18 +1,53 @@
 ﻿@model List<SistemZaDonaciiNaKrv.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "AllDonorsView";
+    ViewBag.Title = "Листа на сите донори";
 }
 
-<h2>AllDonorsView</h2>
+<h3>Листа на сите донори:</h3>
+<br />
 
 
-@foreach (var m in Model)
-{
-    <div>Name: @m.FirstName Email: @m.Email <a href="/Home/MakeUserDoctor?email=@m.Email">Make Doctor</a></div> 
+<table class="table" style="max-width:500px">
 
+    <tr>
 
-}
+        <th>
+            Име:
+        </th>
+        <th>
+            Презиме:
+        </th>
+        <th>
+            Е-адреса
+        </th>
 
-<table>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+<tr>
+    @if (User.IsInRole("Admin"))
+    {
+        <td>@m.FirstName </td>
+        <td>@m.LastName </td>
+        <td>@m.Email </td>
+        <td><a href="/Home/MakeUserDoctor?email=@m.Email">Make Doctor</a></td>
+
+    }
+    @if (User.IsInRole("Doctor"))
+    {
+        <td>@m.FirstName </td>
+        <td>@m.LastName </td>
+        <td>@m.Email </td>
+    }
+
+</tr>
+    }
+
 </table>
+
+
+
+
+    

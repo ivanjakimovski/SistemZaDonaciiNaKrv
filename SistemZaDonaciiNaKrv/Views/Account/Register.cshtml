@@ -56,7 +56,7 @@
 
         <label class="col-md-2 control-label">Пол</label>
         <div class="col-md-5">
-            @Html.DropDownListFor(m => m.Gender, new SelectList(Model.Genders), new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string>() { "Машки", "Женски" }), new { @class = "form-control" })
         </div>
     </div>
 
