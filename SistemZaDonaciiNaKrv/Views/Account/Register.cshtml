@@ -60,6 +60,14 @@
         </div>
     </div>
 
+    <div class="form-group">
+
+        <label class="col-md-2 control-label">Крвна група</label>
+        <div class="col-md-5">
+            @Html.DropDownListFor(m => m.BloodType, new SelectList(new List<string>() { "A+", "A-","B+","B-","AB+", "AB-","O+","O-" }), new { @class = "form-control" })
+        </div>
+    </div>
+
 
     <div class="form-group">
         <label class="col-md-2 control-label">Лозинка</label>

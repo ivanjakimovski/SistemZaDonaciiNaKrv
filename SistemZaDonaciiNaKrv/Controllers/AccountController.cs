@@ -179,7 +179,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName, City = model.City, Address = model.Address, Gender = model.Gender,  UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {PhoneNumber = model.PhoneNumber, FirstName = model.FirstName, LastName = model.LastName, City = model.City, Address = model.Address, Gender = model.Gender,  UserName = model.Email, Email = model.Email, bloodType = model.BloodType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

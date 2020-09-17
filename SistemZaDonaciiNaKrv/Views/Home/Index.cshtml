@@ -11,6 +11,66 @@
 
     if (User.IsInRole("Doctor"))
     {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+
+        <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:700px"></canvas>
+        <script>
+            var data2;
+            jQuery.get("/api/BloodTypeApi", function (data) {
+
+                console.log(data);
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+                        datasets: [{
+                            label: 'Број на единици крв',
+                            data: [data[0].APositive, data[0].ANegative, data[0].BPositive, data[0].BNegative, data[0].ABPositive, data[0].ABNegative, data[0].OPositive, data[0].ONegative],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                 'rgba(255, 99, 132, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+
+
+
+
+
+        </script>
+
+
         <h1>
             <span class="testIme"></span>
             @if (User.IsInRole("Admin"))
@@ -19,10 +79,16 @@
             }
 
         </h1>
-
+        <br />
+        <br />
         <a href="/DonatorForm/Index" class="btn btn-primary">Прегледај формулари</a>
+        <br />
+        <br />
 
         <a href="/Home/AllDonorsView" class="btn btn-primary">Прегледај ги сите донори</a>
+        <br />
+        <br />
+        <a href="/Home/AllDonationsView" class="btn btn-primary">Закажани термини</a>
 
 
 
@@ -58,7 +124,7 @@
                 @if (DateTime.Now.CompareTo(ViewBag.lastDonationDatePlusSixMonths) > 0)
                 {
                     <span>Пополнете формулар за да</span>
-                <div>добиете термин за донација</div>
+                    <div>добиете термин за донација</div>
                     <a href="/DonatorForm/Create" class="btn btn-outline-primary">
                         Пополни формулар
                     </a>
@@ -79,7 +145,7 @@
 
             </div>
 
-   
+
             <br />
             <div class="float-left" style="font-size:19px">
                 <span class="font-weight-bold">Вашата последна донација:</span>

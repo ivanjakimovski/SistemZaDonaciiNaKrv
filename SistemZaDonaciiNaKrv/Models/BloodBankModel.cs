@@ -12,7 +12,5 @@ namespace SistemZaDonaciiNaKrv.Models
         public string City { get; set; }
         public string Address { get; set; }
 
-
-    
     }
 }

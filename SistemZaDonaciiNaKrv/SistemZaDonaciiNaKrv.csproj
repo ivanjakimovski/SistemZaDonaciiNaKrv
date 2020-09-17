@@ -47,16 +47,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Highcharts, Version=8.1.2.3, Culture=neutral, PublicKeyToken=90b74bd27a557bd3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Highsoft.Highcharts.8.1.2.3\lib\netstandard2.0\Highcharts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -169,7 +181,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BloodTypeApiController.cs" />
+    <Compile Include="Controllers\BloodTypeController.cs" />
     <Compile Include="Controllers\DonatorFormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -224,6 +239,22 @@
     <Compile Include="Migrations\202009161332001_changedUserModel.Designer.cs">
       <DependentUpon>202009161332001_changedUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009171545135_addedBloodTypeModel.cs" />
+    <Compile Include="Migrations\202009171545135_addedBloodTypeModel.Designer.cs">
+      <DependentUpon>202009171545135_addedBloodTypeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009171557250_addedKeyToBloodTypeModel.cs" />
+    <Compile Include="Migrations\202009171557250_addedKeyToBloodTypeModel.Designer.cs">
+      <DependentUpon>202009171557250_addedKeyToBloodTypeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009171743205_changedDonationModel.cs" />
+    <Compile Include="Migrations\202009171743205_changedDonationModel.Designer.cs">
+      <DependentUpon>202009171743205_changedDonationModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009171804488_addedEmailAndBloodTypeToDonationModel.cs" />
+    <Compile Include="Migrations\202009171804488_addedEmailAndBloodTypeToDonationModel.Designer.cs">
+      <DependentUpon>202009171804488_addedEmailAndBloodTypeToDonationModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -232,6 +263,7 @@
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\DonationLocationModel.cs" />
     <Compile Include="Models\DonationModel.cs" />
+    <Compile Include="Models\DonationModelDisplay.cs" />
     <Compile Include="Models\DonatorFormModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -647,6 +679,12 @@
     <Content Include="Views\Manage\ChangePhoneNumber.cshtml" />
     <Content Include="Views\Shared\_UserDonations.cshtml" />
     <Content Include="Views\Home\AllDonorsView.cshtml" />
+    <Content Include="Views\BloodType\Create.cshtml" />
+    <Content Include="Views\BloodType\Delete.cshtml" />
+    <Content Include="Views\BloodType\Details.cshtml" />
+    <Content Include="Views\BloodType\Edit.cshtml" />
+    <Content Include="Views\BloodType\Index.cshtml" />
+    <Content Include="Views\Home\AllDonationsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -692,6 +730,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009161332001_changedUserModel.resx">
       <DependentUpon>202009161332001_changedUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171545135_addedBloodTypeModel.resx">
+      <DependentUpon>202009171545135_addedBloodTypeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171557250_addedKeyToBloodTypeModel.resx">
+      <DependentUpon>202009171557250_addedKeyToBloodTypeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171743205_changedDonationModel.resx">
+      <DependentUpon>202009171743205_changedDonationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171804488_addedEmailAndBloodTypeToDonationModel.resx">
+      <DependentUpon>202009171804488_addedEmailAndBloodTypeToDonationModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SistemZaDonaciiNaKrv.Models.BloodTypeModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.APositive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANegative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BPositive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BNegative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ABPositive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ABNegative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPositive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ONegative)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.APositive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANegative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BPositive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BNegative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ABPositive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ABNegative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPositive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ONegative)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

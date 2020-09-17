@@ -1,0 +1,82 @@
+﻿@model SistemZaDonaciiNaKrv.Models.BloodTypeModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BloodTypeModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.APositive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APositive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANegative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANegative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BPositive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BPositive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BNegative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BNegative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ABPositive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ABPositive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ABNegative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ABNegative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPositive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPositive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ONegative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ONegative)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

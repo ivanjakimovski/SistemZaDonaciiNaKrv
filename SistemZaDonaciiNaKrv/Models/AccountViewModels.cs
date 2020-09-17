@@ -85,6 +85,10 @@ namespace SistemZaDonaciiNaKrv.Models
         public string Gender { get; set; }
 
         [Required]
+        [Display(Name = "Крвна група:")]
+        public string BloodType { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Е-адреса")]
         public string Email { get; set; }

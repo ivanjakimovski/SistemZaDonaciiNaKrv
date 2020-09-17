@@ -51,5 +51,9 @@ namespace SistemZaDonaciiNaKrv.Models
         }
 
         public System.Data.Entity.DbSet<SistemZaDonaciiNaKrv.Models.DonatorFormModel> DonatorFormModels { get; set; }
+
+        public System.Data.Entity.DbSet<SistemZaDonaciiNaKrv.Models.BloodTypeModel> BloodTypeModels { get; set; }
+
+        public System.Data.Entity.DbSet<SistemZaDonaciiNaKrv.Models.DonationModel> DonationModels { get; set; }
     }
 }

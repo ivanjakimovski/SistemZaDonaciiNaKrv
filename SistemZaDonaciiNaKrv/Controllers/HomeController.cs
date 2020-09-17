@@ -66,7 +66,15 @@ namespace SistemZaDonaciiNaKrv.Controllers
             return PartialView("_UserDonations", dm);
         }
 
-        
+        public ActionResult AllDonationsView()
+        {
+
+            List<DonationModelDisplay> donations = new List<DonationModelDisplay>();
+
+            return View(db.DonationModels.ToList());
+        }
+
+
         [Authorize(Roles = "Admin,Doctor")]
         public ActionResult AllDonorsView()
         {
@@ -116,6 +124,10 @@ namespace SistemZaDonaciiNaKrv.Controllers
             newDonation.City = user.City;
             newDonation.DonationTime = Convert.ToDateTime(appointment);
             newDonation.isDone = false;
+            newDonation.Name = user.FirstName;
+            newDonation.LastName = user.LastName;
+            newDonation.Email = user.Email;
+            newDonation.bloodType = user.bloodType;
 
             user.allDonations.Add(newDonation);
 
@@ -126,6 +138,58 @@ namespace SistemZaDonaciiNaKrv.Controllers
             db.SaveChanges();
 
             return Redirect("/DonatorForm/Index");
+        }
+
+        public ActionResult AddBlood()
+        {
+            var bloodType = Request.QueryString["bloodType"];
+            var donationId = Request.QueryString["donationId"];
+
+            var bloodReserves = db.BloodTypeModels.Find(1);
+
+            if(bloodType.Equals("APositive"))
+            {
+                bloodReserves.APositive = bloodReserves.APositive + 1;
+            }
+            if (bloodType.Equals("ANegative"))
+            {
+                bloodReserves.ANegative = bloodReserves.ANegative + 1;
+            }
+
+            if (bloodType.Equals("BPositive"))
+            {
+                bloodReserves.BPositive = bloodReserves.BPositive + 1;
+            }
+            if (bloodType.Equals("BNegative"))
+            {
+                bloodReserves.BNegative = bloodReserves.BNegative + 1;
+            }
+
+            if (bloodType.Equals("ABPositive"))
+            {
+                bloodReserves.ABPositive = bloodReserves.ABPositive + 1;
+            }
+            if (bloodType.Equals("ABNegative"))
+            {
+                bloodReserves.ABNegative = bloodReserves.ABNegative + 1;
+            }
+
+            if (bloodType.Equals("OPositive"))
+            {
+                bloodReserves.OPositive = bloodReserves.OPositive + 1;
+            }
+            if (bloodType.Equals("ONegative"))
+            {
+                bloodReserves.ONegative = bloodReserves.ONegative + 1;
+            }
+
+            var donation = db.DonationModels.Find(Convert.ToInt32(donationId));
+            donation.isDone = true;
+
+            db.SaveChanges();
+
+            return Redirect("/Home/AllDonationsView");
+
         }
 
         public ActionResult About()
