@@ -25,7 +25,7 @@
             <a href="/Home/AllDonationsView" class="btn btn-outline-primary">Закажани термини</a>
         </div>
 
-        <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:700px"></canvas>
+        <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:650px"></canvas>
         <script>
             var data2;
             jQuery.get("/api/BloodTypeApi", function (data) {
@@ -117,7 +117,7 @@
                 @Html.Partial("_UserDonations", Model)
 
             </div>
-
+ 
 
             <br />
             <div class="float-left" style="font-size:19px">
