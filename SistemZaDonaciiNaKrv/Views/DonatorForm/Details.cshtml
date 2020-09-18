@@ -1040,19 +1040,27 @@
             });
             $("input.check-box").each(boxChecker);
 
-            $(".btn[type=\"submit\"]").hover(function () {
+            @*$(".btn[type=\"submit\"]").hover(function () {*@
+            $(".btn[href^=\"/DonatorForm/ApproveForm\"]").hover(function () {
                 $(this).removeClass("btn-primary");
                 $(this).addClass("btn-success");
             }, function () {
                 $(this).addClass("btn-primary");
                 $(this).removeClass("btn-success");
             });
-            $(".btn[href^=\"/DonatorForm\"]").hover(function () {
+            $(".btn[href=\"\"]").hover(function () {
+                $(this).removeClass("btn-primary");
+                $(this).addClass("btn-danger");
+            }, function () {
+                $(this).addClass("btn-primary");
+                $(this).removeClass("btn-danger");
+            });
+            $(".btn[href^=\"/DonatorForm?\"]").hover(function () {
                 $(this).removeClass("btn-default");
-                $(this).addClass("btn-success");
+                $(this).addClass("btn-secondary");
             }, function () {
                 $(this).addClass("btn-default");
-                $(this).removeClass("btn-success");
+                $(this).removeClass("btn-secondary");
             });
             $("input.check-box").click(boxChecker);
         });

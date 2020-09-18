@@ -7,40 +7,44 @@
 <h2>Листа со одговорени формулари:</h2>
 
 <table class="table">
- 
-        <tr>
-            @*<th>
+
+    <tr class="table-info">
+        @*<th>
                 @Html.DisplayNameFor(model => model.DonorId)
             </th>*@
 
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                <span>Одобрено:</span>
-            </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            <span>Одобрено:</span>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
 
-        </tr>
-  
-   
-        @foreach (var item in Model)
+
+    @{
+
+        int i = 0;
+        foreach (var item in Model)
         {
-            <tr>
+            <tr class="@(i%2==0?"table-default":"table-active")">
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.DonorId)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.DonorId)
+                    </td>*@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -69,56 +73,57 @@
                 </td>
 
                 <td>
-                   <a href="/DonatorForm/Details/@item.Id" class="">Прегледaj</a>
-                    @*@Html.ActionLink("Прегледaj", "Details", new { id = item.Id })*@ |
-                    <a id="deleteLink" form-id="@item.Id" class="deleteButton">Избриши</a>
+                    <a href="/DonatorForm/Details/@item.Id" class="btn btn-info">Прегледaj</a>
+                    @*@Html.ActionLink("Прегледaj", "Details", new { id = item.Id })*@
+                    <a id="deleteLink" form-id="@item.Id" class="btn btn-danger deleteButton">Избриши</a>
                     @*@Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })*@
-                <style>
-                    #deleteLink{
-                        color: red;
-                    }
-                    #deleteLink:hover {
-                        text-decoration: underline;
-                        cursor: pointer;
-                    }
-                </style>
+                    <style>
+                        td {
+                            text-align: center;
+                        }
+
+                        #deleteLink {
+                            color: white;
+                        }
+                    </style>
                 </td>
 
                 <td>
                     @if (item.daliOdobreno)
                     {
-           
-                    <form action="/Home/BookAppointment">
-                        <label for="appointment">Одбери датум:</label>
-                        <input type="date" id="appointment" name="appointment">
-                        <input type="email" id="email" hidden value="@item.Email" form-id="@item.Id" name="email">
-                        <input type="text" id="formId" hidden value="@item.Id" form-id="@item.Id" name="formId">
-                        <input type="submit" value="Закажи" id="deleteButton2" onclick="deleteRow()" class="btn btn-outline-primary float-right">
-                    </form>
 
-                    <script>
-                        function deleteRow() {
+                        <form action="/Home/BookAppointment">
+                            <label for="appointment">Одбери датум:</label>
+                            <input type="date" id="appointment" name="appointment">
+                            <input type="email" id="email" hidden value="@item.Email" form-id="@item.Id" name="email">
+                            <input type="text" id="formId" hidden value="@item.Id" form-id="@item.Id" name="formId">
+                            <input type="submit" value="Закажи" id="deleteButton2" onclick="deleteRow()" class="btn btn-light btn-outline-primary float-right">
+                        </form>
 
-                            $("#deleteButton2").on("click", function () {
-                                var button = $(this);
-                                var button2 = this;
-                                        $.ajax({
-                                            url: "/DonatorForm/Delete/" + button.attr("form-id"),
-                                            method: "POST",
-                                            success: function () {
-                                                var row = button2.parentNode.parentNode;
-                                                row.parentNode.removeChild(row);     
-                                            }
-                                        });
-                            });
-                        }
+                        <script>
+                            function deleteRow() {
 
-                    </script>
+                                $("#deleteButton2").on("click", function () {
+                                    var button = $(this);
+                                    var button2 = this;
+                                    $.ajax({
+                                        url: "/DonatorForm/Delete/" + button.attr("form-id"),
+                                        method: "POST",
+                                        success: function () {
+                                            var row = button2.parentNode.parentNode;
+                                            row.parentNode.removeChild(row);
+                                        }
+                                    });
+                                });
+                            }
+
+                        </script>
                     }
-                </td>  
+                </td>
             </tr>
+        i++;
         }
-   
+    }
 
 </table>
 

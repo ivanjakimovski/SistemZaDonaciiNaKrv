@@ -11,8 +11,19 @@
 
     if (User.IsInRole("Doctor"))
     {
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        @*<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>*@
+        <script src="~/Scripts/Custom/Chart.min.js"></script>
 
+        <h1>
+            Добредојдовте
+            <span class="testIme"></span>
+        </h1>
+
+        <div>
+            <a href="/DonatorForm/Index" class="btn btn-outline-primary">Прегледај формулари</a>
+            <a href="/Home/AllDonorsView" class="btn btn-outline-primary">Прегледај ги сите донори</a>
+            <a href="/Home/AllDonationsView" class="btn btn-outline-primary">Закажани термини</a>
+        </div>
 
         <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:700px"></canvas>
         <script>
@@ -64,35 +75,6 @@
                 });
             });
 
-
-
-
-
-        </script>
-
-
-        <h1>
-            <span class="testIme"></span>
-            @if (User.IsInRole("Admin"))
-            {
-                <span> (Admin)</span>
-            }
-
-        </h1>
-        <br />
-        <br />
-        <a href="/DonatorForm/Index" class="btn btn-outline-primary">Прегледај формулари</a>
-        <br />
-        <br />
-
-        <a href="/Home/AllDonorsView" class="btn btn-outline-primary">Прегледај ги сите донори</a>
-        <br />
-        <br />
-        <a href="/Home/AllDonationsView" class="btn btn-outline-primary">Закажани термини</a>
-
-
-
-        <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
         });
@@ -102,22 +84,13 @@
     if (User.IsInRole("Donor"))
     {
         <h1>
+            Добредојдовте
             <span class="testIme"></span>
-            @if (User.IsInRole("Admin"))
-            {
-                <span> (Admin)</span>
-            }
 
         </h1>
 
-
-
         <div class="text-center">
-
-
             <br />
-
-
             <div class="text-center float-right mr-5 mt-4" style="font-size:20px">
 
                 <br />
@@ -210,6 +183,7 @@
     if (User.IsInRole("Admin"))
     {
         <h1>
+            Добредојдовте
             <span class="testIme"></span>
 
         </h1>
@@ -227,12 +201,14 @@
 else
 {
     <div class="text-center">
-        <h3 style="color: red;">Дарувај крв спаси човечки живот.</h3>
+        <h3 style="color: red;">Дарувај крв, спаси човечки живот.</h3>
     </div>
 
-    <p>Да се стане крводарител пред се значи да се биде хуман човек.</p>
-    <p>Преку овој хуман гест, со само една донирана кеса крв, може да спасите и до 3 или 4 животи.</p>
-    <p>Доколку не сте целосно запознаени со овој процес <a href="/Home/Info/">тука</a> може да прочитате повеќе информации поврзани со донирање на крв.</p>
+    <div id="paragraphs">
+        <p>Да се стане крводарител пред се значи да се биде хуман човек.</p>
+        <p>Преку овој хуман гест, со само една донирана кеса крв, може да спасите и до 3 или 4 животи.</p>
+        <p>Доколку не сте целосно запознаени со овој процес <a href="/Home/Info/">тука</a> може да прочитате повеќе информации поврзани со донирање на крв.</p>
+    </div>
 
     <div class="text-center">
         <div class="midBox card">
@@ -265,7 +241,88 @@ else
     </div>
 }
 
+<style>
 
+    #paragraphs {
+        -webkit-animation: fade-in-down 1s;
+        animation: fade-in-down 1s;
+        text-align: center;
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
 
+        #paragraphs p {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
 
+    .midBox.card {
+        margin-left: 15%;
+        -webkit-animation: fade-in-up 1s;
+        animation: fade-in-up 1s;
+    }
 
+    @@-webkit-keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    @@keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    @@-webkit-keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    @@keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+</style>
+
+@section scripts{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            //if the user has a mobile screen
+            if (document.documentElement.scrollWidth < 500) {
+                const c = document.querySelectorAll(".midBox.card");
+                c.forEach((it) => {
+                    $(it).css({ "width": "270px", "height": "270px" });
+                });
+            }
+
+        });
+    </script>
+}

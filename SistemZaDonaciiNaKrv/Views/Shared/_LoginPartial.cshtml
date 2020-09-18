@@ -13,6 +13,11 @@
             <li class="nav-item nav-link text-dark"><a href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a></li>
         </ul>
 
+        <style>
+            a{color:black;}
+            a:hover{text-decoration:none;color:black;}
+        </style>
+
         <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
