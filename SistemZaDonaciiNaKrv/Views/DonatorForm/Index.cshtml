@@ -69,9 +69,19 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Преглед на формулар", "Details", new { id = item.Id }) |
-                    <a form-id="@item.Id" class="deleteButton">Избриши формулар</a>
+                   <a href="/DonatorForm/Details/@item.Id" class="">Прегледaj</a>
+                    @*@Html.ActionLink("Прегледaj", "Details", new { id = item.Id })*@ |
+                    <a id="deleteLink" form-id="@item.Id" class="deleteButton">Избриши</a>
                     @*@Html.ActionLink("Избриши формулар", "Delete", new { id = item.Id })*@
+                <style>
+                    #deleteLink{
+                        color: red;
+                    }
+                    #deleteLink:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                </style>
                 </td>
 
                 <td>

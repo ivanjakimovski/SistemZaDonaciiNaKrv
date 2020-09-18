@@ -47,7 +47,7 @@
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(255, 99, 132, 1)',
-                                 'rgba(255, 99, 132, 1)'
+                                'rgba(255, 99, 132, 1)'
                             ],
                             borderWidth: 1
                         }]
@@ -81,14 +81,14 @@
         </h1>
         <br />
         <br />
-        <a href="/DonatorForm/Index" class="btn btn-primary">Прегледај формулари</a>
+        <a href="/DonatorForm/Index" class="btn btn-outline-primary">Прегледај формулари</a>
         <br />
         <br />
 
-        <a href="/Home/AllDonorsView" class="btn btn-primary">Прегледај ги сите донори</a>
+        <a href="/Home/AllDonorsView" class="btn btn-outline-primary">Прегледај ги сите донори</a>
         <br />
         <br />
-        <a href="/Home/AllDonationsView" class="btn btn-primary">Закажани термини</a>
+        <a href="/Home/AllDonationsView" class="btn btn-outline-primary">Закажани термини</a>
 
 
 
@@ -205,6 +205,20 @@
           $(".testIme").html(data);
         });
         </script>
+    }
+
+    if (User.IsInRole("Admin"))
+    {
+        <h1>
+            <span class="testIme"></span>
+
+        </h1>
+
+        <br />
+
+        <a href="/Home/AllDonorsView" class="btn btn-outline-primary">Прегледај донори</a>
+
+
     }
 
 

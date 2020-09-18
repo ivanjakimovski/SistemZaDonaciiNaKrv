@@ -375,7 +375,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>DonatorFormModel</h4>
+        <h4 class="m-4">@Model.Name @Model.LastName</h4>
         <hr />
         @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">

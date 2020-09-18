@@ -48,12 +48,12 @@ namespace SistemZaDonaciiNaKrv.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Внесете е-адреса.")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Внесете лозинка.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -65,41 +65,41 @@ namespace SistemZaDonaciiNaKrv.Models
     public class RegisterViewModel
     {
 
-        [Required]
+        [Required(ErrorMessage = "Внесете име.")]
         [Display(Name = "Име:")]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Внесете презиме.")]
         [Display(Name = "Презиме:")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Внесете адреса.")]
         [Display(Name = "Адреса:")]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Внесете град.")]
         [Display(Name = "Град:")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Изберете пол.")]
         [Display(Name = "Пол:")]
         public string Gender { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Изберете крвна група.")]
         [Display(Name = "Крвна група:")]
         public string BloodType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Внесете е-адреса.")]
         [EmailAddress]
         [Display(Name = "Е-адреса")]
         public string Email { get; set; }
 
 
-        [Required]
+        [Required(ErrorMessage = "Внесете телефон.")]
         [Display(Name = "Телефон")]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Внесете лозинка.")]
+        [StringLength(100, ErrorMessage = "Лозинката мора да биде долга најмалку 8 карактери.", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -108,7 +108,7 @@ namespace SistemZaDonaciiNaKrv.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Лозинката и потврдата на лозинката не се еднакви.")]
         public string ConfirmPassword { get; set; }
 
         public RegisterViewModel()
@@ -125,14 +125,14 @@ namespace SistemZaDonaciiNaKrv.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Лозинката мора да биде долга најмалку 8 карактери.", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Лозинката и потврдата на лозинката не се еднакви.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

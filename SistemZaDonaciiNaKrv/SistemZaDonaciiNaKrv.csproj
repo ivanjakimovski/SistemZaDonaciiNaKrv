@@ -255,6 +255,10 @@
     <Compile Include="Migrations\202009171804488_addedEmailAndBloodTypeToDonationModel.Designer.cs">
       <DependentUpon>202009171804488_addedEmailAndBloodTypeToDonationModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009181359120_changedRegisterAndLoginModel.cs" />
+    <Compile Include="Migrations\202009181359120_changedRegisterAndLoginModel.Designer.cs">
+      <DependentUpon>202009181359120_changedRegisterAndLoginModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodBankModel.cs" />
@@ -742,6 +746,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009171804488_addedEmailAndBloodTypeToDonationModel.resx">
       <DependentUpon>202009171804488_addedEmailAndBloodTypeToDonationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009181359120_changedRegisterAndLoginModel.resx">
+      <DependentUpon>202009181359120_changedRegisterAndLoginModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
