@@ -438,7 +438,6 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
-    <Content Include="Content\images\ErrorKittens.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -691,9 +690,11 @@
     <Content Include="Views\BloodType\Edit.cshtml" />
     <Content Include="Views\BloodType\Index.cshtml" />
     <Content Include="Views\Home\AllDonationsView.cshtml" />
+    <Content Include="Views\Home\TestErrorView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

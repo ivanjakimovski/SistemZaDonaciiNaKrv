@@ -212,5 +212,10 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
             return View();
         }
+
+        public ActionResult TestErrorView()
+        {
+            return View();
+        }
     }
 }

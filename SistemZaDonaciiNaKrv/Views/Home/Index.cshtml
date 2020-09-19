@@ -8,24 +8,14 @@
 @if (Request.IsAuthenticated)
 {
 
-
+    <script src="~/Scripts/Custom/Chart.min.js"></script>
     if (User.IsInRole("Doctor"))
     {
         @*<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>*@
         <script src="~/Scripts/Custom/Chart.min.js"></script>
 
-        <h1>
-            Добредојдовте
-            <span class="testIme"></span>
-        </h1>
 
-        <div>
-            <a href="/DonatorForm/Index" class="btn btn-outline-primary">Прегледај формулари</a>
-            <a href="/Home/AllDonorsView" class="btn btn-outline-primary">Прегледај ги сите донори</a>
-            <a href="/Home/AllDonationsView" class="btn btn-outline-primary">Закажани термини</a>
-        </div>
-
-        <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:650px"></canvas>
+        <canvas class="float-right" id="myChart" width="700" height="400" style="max-width:700px"></canvas>
         <script>
             var data2;
             jQuery.get("/api/BloodTypeApi", function (data) {
@@ -75,6 +65,35 @@
                 });
             });
 
+
+
+
+
+        </script>
+
+
+        <h1>
+            <span class="testIme"></span>
+            @if (User.IsInRole("Admin"))
+            {
+                <span> (Admin)</span>
+            }
+
+        </h1>
+        <br />
+        <br />
+        <a href="/DonatorForm/Index" style="width:300px" class="btn btn-outline-primary">Прегледај формулари</a>
+        <br />
+        <br />
+
+        <a href="/Home/AllDonorsView" style="width:300px" class="btn btn-outline-primary">Прегледај ги сите донори</a>
+        <br />
+        <br />
+        <a href="/Home/AllDonationsView" style="width:300px" class="btn btn-outline-primary">Закажани термини</a>
+
+
+
+        <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
           $(".testIme").html(data);
         });
@@ -117,7 +136,7 @@
                 @Html.Partial("_UserDonations", Model)
 
             </div>
- 
+
 
             <br />
             <div class="float-left" style="font-size:19px">
@@ -201,7 +220,7 @@
 else
 {
     <div class="text-center">
-        <h3 style="color: red;">Дарувај крв, спаси човечки живот.</h3>
+        <h3 style="color: #d90404;">Дарувај крв, спаси човечки живот.</h3>
     </div>
 
     <div id="paragraphs">
@@ -217,7 +236,7 @@ else
                     САКАТЕ ДА СТАНЕТЕ ДОНОР?
                 </h3>
                 <p class="card-text">Ако сакате и вие да станете дел од хуманите луѓе кои спасиле многу човечки животи.</p>
-                <a class="btn btn-info" href="/Account/Register/">Регистрирајте се тука</a>
+                <a style="width:183px" class="btn btn-info" href="/Account/Register/">Регистрирајте се тука</a>
             </div>
         </div>
         <div class="midBox card">
@@ -226,7 +245,7 @@ else
                     ВЕЌЕ СТЕ ДОНОР?
                 </h3>
                 <p class="card-text">Доколку сакате да се информирате кога повторно може да донирате крв или сакате да промените некои ваши податоци.</p>
-                <a class="btn btn-info" href="/Account/Login/">Најавете се</a>
+                <a style="width:183px" class="btn btn-info" href="/Account/Login/">Најавете се</a>
             </div>
         </div>
         @*<div class="midBox card attentionSeeker">
