@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BloodTypeApiController.cs" />
     <Compile Include="Controllers\BloodTypeController.cs" />
     <Compile Include="Controllers\DonatorFormController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -470,6 +471,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -690,7 +692,8 @@
     <Content Include="Views\BloodType\Edit.cshtml" />
     <Content Include="Views\BloodType\Index.cshtml" />
     <Content Include="Views\Home\AllDonationsView.cshtml" />
-    <Content Include="Views\Home\TestErrorView.cshtml" />
+    <Content Include="Views\Home\NotFound.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

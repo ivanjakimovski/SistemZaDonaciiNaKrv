@@ -96,15 +96,30 @@
                             <input type="date" id="appointment" name="appointment">
                             <input type="email" id="email" hidden value="@item.Email" form-id="@item.Id" name="email">
                             <input type="text" id="formId" hidden value="@item.Id" form-id="@item.Id" name="formId">
-                            <input type="submit" value="Закажи" id="deleteButton2" onclick="deleteRow()" class="btn btn-light btn-outline-primary float-right">
+                            <input type="submit" form-id="@item.Id" value="Закажи" id="deleteButton2" onclick="deleteRow()" class="btn btn-light btn-outline-primary float-right">
                         </form>
 
                         <script>
+
+                            function makeAppointment() {
+                                let appointment = document.getElementById("appointment").value;
+                                let email = document.getElementById("email").value;
+                                let formId = document.getElementById("formId").value;
+                                if (appointment == "") {
+                                    alert("Одберете датум.")
+                                } else {
+                                    $.get("/Home/BookAppointment?appointment=" + appointment + "&email=" + email + "&formId=" + formId);
+                                    deleteRow(this);
+                                }
+
+                            }
+
                             function deleteRow() {
 
                                 $("#deleteButton2").on("click", function () {
                                     var button = $(this);
                                     var button2 = this;
+                        
                                     $.ajax({
                                         url: "/DonatorForm/Delete/" + button.attr("form-id"),
                                         method: "POST",

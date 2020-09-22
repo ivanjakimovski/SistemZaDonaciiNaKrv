@@ -1,14 +1,14 @@
 ﻿@model SistemZaDonaciiNaKrv.Models.ChangeCityViewModel
 @{
-    ViewBag.Title = "ChangeCity";
+    ViewBag.Title = "Промена на град";
 }
 
-<h2>ChangeCity</h2>
+    <h2>Промена на град</h2>
 
 @using (Html.BeginForm("ChangeCity", "Manage"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.City)
+        <label>Град</label>
         @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
     </div>
  

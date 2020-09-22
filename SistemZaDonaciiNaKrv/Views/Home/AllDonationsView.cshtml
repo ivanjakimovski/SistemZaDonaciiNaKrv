@@ -6,7 +6,7 @@
 
 <h2>Преглед на сите термини</h2>
 
-<table class="table" style="max-width:700px">
+<table class="table" style="max-width:900px">
     <tr class="table-info">
         <th>
            Име
@@ -49,39 +49,49 @@
     </td>
 
     <td>
-        @if (item.bloodType.Equals("A+"))
-                         {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=APositive&donationId=@item.Id">Готово</a>
-         }
-         @if (item.bloodType.Equals("A-"))
+        @if (!item.isDone)
         {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ANegative&donationId=@item.Id">Готово</a>
-     }
-     @if (item.bloodType.Equals("B+"))
-        {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=BPositive&donationId=@item.Id">Готово</a>
+            if (item.bloodType.Equals("A+"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=APositive&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("A-"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ANegative&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("B+"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=BPositive&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("B-"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=BNegative&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("AB+"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ABPositive&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("AB-"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ABNegative&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("O+"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=OPositive&donationId=@item.Id">Готово</a>
+            }
+            if (item.bloodType.Equals("O-"))
+            {
+                <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ONegative&donationId=@item.Id">Готово</a>
+            }
         }
-        @if (item.bloodType.Equals("B-"))
+        else
         {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=BNegative&donationId=@item.Id">Готово</a>
-        }
-        @if (item.bloodType.Equals("AB+"))
-        {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ABPositive&donationId=@item.Id">Готово</a>
-        }
-        @if (item.bloodType.Equals("AB-"))
-        {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ABNegative&donationId=@item.Id">Готово</a>
-        }
-        @if (item.bloodType.Equals("O+"))
-        {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=OPositive&donationId=@item.Id">Готово</a>
-        }
-        @if (item.bloodType.Equals("O-"))
-        {
-            <a class="btn btn-outline-info" href="/Home/AddBlood?bloodType=ONegative&donationId=@item.Id">Готово</a>
+            <a class="btn btn-outline-info disabled">Готово</a>
         }
 
+    </td>
+    <td>
+        <a href="/Home/DeleteDonation/@item.Id" class="btn btn-outline-danger">Избриши</a>
     </td>
 </tr>
          i++;

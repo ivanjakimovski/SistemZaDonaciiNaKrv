@@ -17,6 +17,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/BloodTypeApi
+        [Authorize(Roles = "Doctor,Admin")]
         public IQueryable<BloodTypeModel> GetBloodTypeModels()
         {
             return db.BloodTypeModels;
@@ -24,6 +25,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         // GET: api/BloodTypeApi/5
         [ResponseType(typeof(BloodTypeModel))]
+        [Authorize(Roles = "Doctor,Admin")]
         public HttpResponseMessage GetBloodTypeModel(int id)
         {
             BloodTypeModel bloodTypeModel = db.BloodTypeModels.Find(id);
@@ -38,6 +40,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         // PUT: api/BloodTypeApi/5
         [ResponseType(typeof(void))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult PutBloodTypeModel(int id, BloodTypeModel bloodTypeModel)
         {
             if (!ModelState.IsValid)
@@ -73,6 +76,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         // POST: api/BloodTypeApi
         [ResponseType(typeof(BloodTypeModel))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult PostBloodTypeModel(BloodTypeModel bloodTypeModel)
         {
             if (!ModelState.IsValid)
@@ -88,6 +92,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         // DELETE: api/BloodTypeApi/5
         [ResponseType(typeof(BloodTypeModel))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteBloodTypeModel(int id)
         {
             BloodTypeModel bloodTypeModel = db.BloodTypeModels.Find(id);

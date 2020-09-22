@@ -8,19 +8,22 @@
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
                 @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link text-dark" })*@
-                <a class = "nav-link text-dark testIme" href="/Manage/Index/"> </a>
+                <a class = "nav-link text-dark userName" href="/Manage/Index/"> </a>
             </li>
-            <li class="nav-item nav-link text-dark"><a href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a></li>
+            <li class="nav-item nav-link text-dark"><a href="javascript:document.getElementById('logoutForm').submit()" class="logOutButton">Одјави се</a></li>
         </ul>
 
         <style>
-            a{color:black;}
-            a:hover{text-decoration:none;color:black;}
+            .userName{color:black;}
+            .userName:hover{text-decoration:none;color:black;}
+            .logOutButton{color:black;}
+            .logOutButton:hover{text-decoration:none;color:black;}
+
         </style>
 
         <script>
         jQuery.get("/Account/getUserName/?email=@User.Identity.Name", function(data) {
-          $(".testIme").html(data);
+          $(".userName").html(data);
         });
         </script>
     }

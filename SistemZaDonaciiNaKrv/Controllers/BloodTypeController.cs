@@ -15,12 +15,14 @@ namespace SistemZaDonaciiNaKrv.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BloodType
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.BloodTypeModels.ToList());
         }
 
         // GET: BloodType/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // GET: BloodType/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,APositive,ANegative,BPositive,BNegative,ABPositive,ABNegative,OPositive,ONegative")] BloodTypeModel bloodTypeModel)
         {
             if (ModelState.IsValid)
@@ -59,6 +63,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // GET: BloodType/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +83,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,APositive,ANegative,BPositive,BNegative,ABPositive,ABNegative,OPositive,ONegative")] BloodTypeModel bloodTypeModel)
         {
             if (ModelState.IsValid)
@@ -90,6 +96,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         }
 
         // GET: BloodType/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +114,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
         // POST: BloodType/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             BloodTypeModel bloodTypeModel = db.BloodTypeModels.Find(id);

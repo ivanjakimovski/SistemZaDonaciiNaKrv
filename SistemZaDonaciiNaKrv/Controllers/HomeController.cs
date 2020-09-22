@@ -140,6 +140,7 @@ namespace SistemZaDonaciiNaKrv.Controllers
             return Redirect("/DonatorForm/Index");
         }
 
+        [Authorize(Roles = "Doctor")]
         public ActionResult AddBlood()
         {
             var bloodType = Request.QueryString["bloodType"];
@@ -192,6 +193,16 @@ namespace SistemZaDonaciiNaKrv.Controllers
 
         }
 
+        [Authorize(Roles = "Doctor")]
+        public ActionResult DeleteDonation(string id)
+        {
+            var donationToRemove = db.DonationModels.Find(Convert.ToInt32(id));
+            db.DonationModels.Remove(donationToRemove);
+            db.SaveChanges();
+
+            return Redirect("/Home/AllDonationsView");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -210,11 +221,6 @@ namespace SistemZaDonaciiNaKrv.Controllers
         {
             ViewBag.Message = "Info page.";
 
-            return View();
-        }
-
-        public ActionResult TestErrorView()
-        {
             return View();
         }
     }
